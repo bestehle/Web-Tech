@@ -5,80 +5,76 @@
         <meta charset="UTF-8" />
     </head>
     <body>
-        <h1>Logbuch</h1>
-        <table>
-            <colgroup>
-                <col width="100"/>
-                <col width="200"/>
-                <col />
-                <col />
-                <col />
-                <col />
-            </colgroup>
-            <tr>
-                <td><label for="bootsname">Bootsname</label></td>
-                <td><input type="text" id="bootsname" /></td>
-                <td><label for="typ">Typ</label></td>
-                <td><input type="text" id="typ" /></td>
-                <td><label for="baujahr">Baujahr</label></td>
-                <td><input type="text" id="baujahr" /></td>
-            </tr>
-            <tr>
-                <td><label for="registernr">Registernr.</label></td>
-                <td><input type="text" id="registernr" /></td>
-                <td><label for="konstrukteur">Konstrukteur</label></td>
-                <td><input type="text" id="konstrukteur" /></td>
-                <td><label for="motor">Motor</label></td>
-                <td><input type="text" id="motor" /></td>
-            </tr>
-            <tr>
-                <td><label for="segelzeichen">Segelzeichen</label></td>
-                <td><input type="text" id="segelzeichen" /></td>
-                <td><label for="laenge">Länge</label></td>
-                <td><input type="text" id="laenge" /></td>
-                <td><label for="tankgroesse">Tankgröße</label></td>
-                <td><input type="text" id="tankgroesse" /></td>
-            </tr>
-            <tr>
-                <td><label for="heimathafen">Heimathafen</label></td>
-                <td><input type="text" id="heimathafen" /></td>
-                <td><label for="breite">Breite</label></td>
-                <td><input type="text" id="breite" /></td>
-                <td><label for="wassertankgroesse">Wassertankgröße</label></td>
-                <td><input type="text" id="wassertankgroesse" /></td>
-            </tr>
-            <tr>
-                <td><label for="yachtclub">Yachtclub</label></td>
-                <td><input type="text" id="yachtclub" /></td>
-                <td><label for="tiefgang">Tiefgang</label></td>
-                <td><input type="text" id="tiefgang" /></td>
-                <td><label for="abwassertankgroesse">Abwassertankgröße</label></td>
-                <td><input type="text" id="abwassertankgroesse" /></td>
-            </tr>
-            <tr>
-                <td><label for="eigner">Eigner</label></td>
-                <td><input type="text" id="eigner" /></td>
-                <td><label for="masthoehe">Masthöhe</label></td>
-                <td><input type="text" id="masthoehe" /></td>
-                <td><label for="grosssegelgroesse">Großsegelgröße</label></td>
-                <td><input type="text" id="grosssegelgroesse" /></td>
-            </tr>
-            <tr>
-                <td><label for="versicherung">Versicherung</label></td>
-                <td><input type="text" id="versicherung" /></td>
-                <td><label for="verdraengung">Verdrängung</label></td>
-                <td><input type="text" id="verdraengung" /></td>
-                <td><label for="genuagroesse">Genuagröße</label></td>
-                <td><input type="text" id="genuagroesse" /></td>
-            </tr>
-            <tr>
-                <td><label for="rufzeichen">Rufzeichen</label></td>
-                <td><input type="text" id="rufzeichen" /></td>
-                <td><label for="rig-art">Rig-Art</label></td>
-                <td><input type="text" id="rig-art" /></td>
-                <td><label for="spigroesse">Spigröße</label></td>
-                <td><input type="text" id="spigroesse" /></td>
-            </tr>
-        </table>
+        <form>
+            <h1>Logbuch</h1>
+            <table cellpadding="5">
+                <tr>
+                    <td><label for="bootsname">Bootsname</label></td>
+                    <td><input type="text" id="bootsname" /></td>
+                    <td><label for="typ">Typ</label></td>
+                    <td><input type="text" id="typ" /></td>
+                    <td><label for="baujahr">Baujahr</label></td>
+                    <td><input type="text" id="baujahr" /></td>
+                </tr>
+                <tr>
+                    <td><label for="registernr">Registernr.</label></td>
+                    <td><input type="text" id="registernr" /></td>
+                    <td><label for="konstrukteur">Konstrukteur</label></td>
+                    <td><input type="text" id="konstrukteur" /></td>
+                    <td><label for="motor">Motor</label></td>
+                    <td><input type="text" id="motor" /></td>
+                </tr>
+                <tr>
+                    <td><label for="segelzeichen">Segelzeichen</label></td>
+                    <td><input type="text" id="segelzeichen" /></td>
+                    <td><label for="laenge">Länge</label></td>
+                    <td><input type="text" id="laenge" /></td>
+                    <td><label for="tankgroesse">Tankgröße</label></td>
+                    <td><input type="text" id="tankgroesse" /></td>
+                </tr>
+                <tr>
+                    <td><label for="heimathafen">Heimathafen</label></td>
+                    <td><input type="text" id="heimathafen" /></td>
+                    <td><label for="breite">Breite</label></td>
+                    <td><input type="text" id="breite" /></td>
+                    <td><label for="wassertankgroesse">Wassertankgröße</label></td>
+                    <td><input type="text" id="wassertankgroesse" /></td>
+                </tr>
+                <tr>
+                    <td><label for="yachtclub">Yachtclub</label></td>
+                    <td><input type="text" id="yachtclub" /></td>
+                    <td><label for="tiefgang">Tiefgang</label></td>
+                    <td><input type="text" id="tiefgang" /></td>
+                    <td><label for="abwassertankgroesse">Abwassertankgröße</label></td>
+                    <td><input type="text" id="abwassertankgroesse" /></td>
+                </tr>
+                <tr>
+                    <td><label for="eigner">Eigner</label></td>
+                    <td><input type="text" id="eigner" /></td>
+                    <td><label for="masthoehe">Masthöhe</label></td>
+                    <td><input type="text" id="masthoehe" /></td>
+                    <td><label for="grosssegelgroesse">Großsegelgröße</label></td>
+                    <td><input type="text" id="grosssegelgroesse" /></td>
+                </tr>
+                <tr>
+                    <td><label for="versicherung">Versicherung</label></td>
+                    <td><input type="text" id="versicherung" /></td>
+                    <td><label for="verdraengung">Verdrängung</label></td>
+                    <td><input type="text" id="verdraengung" /></td>
+                    <td><label for="genuagroesse">Genuagröße</label></td>
+                    <td><input type="text" id="genuagroesse" /></td>
+                </tr>
+                <tr>
+                    <td><label for="rufzeichen">Rufzeichen</label></td>
+                    <td><input type="text" id="rufzeichen" /></td>
+                    <td><label for="rig-art">Rig-Art</label></td>
+                    <td><input type="text" id="rig-art" /></td>
+                    <td><label for="spigroesse">Spigröße</label></td>
+                    <td><input type="text" id="spigroesse" /></td>
+                </tr>
+            </table>
+            <input type="submit" name="submit" />
+            <input type="reset" name="reset" />
+        </form>
     </body>
 </html>
