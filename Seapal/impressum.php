@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<?php
-	include ("header.php");
+		$navsection = 'contact';
+		include ("header.php");
 	?>
 
 	<div id="wrapper">
 		<div id="page" class="container">
 			<div id="content">
 				<div class="post">
-					<h2 class="title"><a name="legal">Legal responsibility </a></h2>
+					<h2 class="title">Legal responsibility</h2>
 					<div class="entry">
 						<p>
 							IBN is a subsidiary of Druck- und Verlagshaus Hermann Daniel.
@@ -48,7 +49,7 @@
 					</div>
 				</div>
 				<div class="post">
-					<h2 class="title"><a name="content">Content </a></h2>
+					<h2 class="title">Content</h2>
 					<div class="entry">
 						<p>
 							The content of this web site was created by Prof. Dr. Marko Boger in cooperation with IBN.
@@ -57,7 +58,7 @@
 				</div>
 
 				<div class="post">
-					<h2 class="title"><a name="design">Design </a></h2>
+					<h2 class="title">Design</h2>
 					<div class="entry">
 						<p>
 							The design of this web site was created by Prof. Dr. Marko Boger.
@@ -93,18 +94,6 @@
 		</div>
 		<!-- end #page -->
 	</div>
-	<div id="fb-root"></div>
-	<script>
-		( function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id))
-					return;
-				js = d.createElement(s);
-				js.id = id;
-				js.src = "../connect.facebook.net/en_US/all.js#xfbml=1";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-	</script>
 
 	<?php
 	include ("footer.php");

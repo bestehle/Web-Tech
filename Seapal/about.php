@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<?php
-	include ("header.php");
+		$navsection = 'about';
+		include ("header.php");
 	?>
 
 	<div id="wrapper">
 		<div id="page" class="container">
 			<div id="content">
 				<div class="post">
-					<h2 class="title"><a name="about">About SeaPal </a></h2>
+					<h2 class="title">About SeaPal</h2>
 					<div class="entry">
 
 						<p>
@@ -59,18 +60,6 @@
 		<!-- end #page -->
 	</div>
 
-	<div id="fb-root"></div>
-	<script>
-		( function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id))
-					return;
-				js = d.createElement(s);
-				js.id = id;
-				js.src = "../connect.facebook.net/en_US/all.js#xfbml=1";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-	</script>
 
 	<?php
 	include ("footer.php");

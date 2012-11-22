@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<?php
-	include ("header.php");
+		$navsection = 'screenshots';
+		include ("header.php");
 	?>
 
 	<div id="wrapper">
 		<div id="page" class="container">
 			<div id="content">
 				<div class="post">
-					<h2 class="title"><a name="ipad">SeaPal on the iPad</a></h2>
+					<h2 class="title">SeaPal on the iPad</h2>
 					<div class="entry">
 						<figure><img src="images/SeaPal-InitialPosition.jpg" alt="SeaPal-InitialPosition" width="580" height="435"/>
 							<figcaption>
@@ -69,7 +70,7 @@
 				</div>
 
 				<div class="post">
-					<h2 class="title"><a name="tools">SeaPal Tools</a></h2>
+					<h2 class="title">SeaPal Tools</h2>
 					<div class="entry">
 						<figure><img src="images/SeaPal-RouteTool.jpg" alt="SeaPal-RouteTool" width="580" height="435">
 							<figcaption>
@@ -91,7 +92,7 @@
 				</div>
 
 				<div class="post">
-					<h2 class="title"><a name="inplace">SeaPal In-Place-Tools</a></h2>
+					<h2 class="title">SeaPal In-Place-Tools</h2>
 					<div class="entry">
 						<figure><img src="images/SeaPal-Longtouch.jpg" alt="SeaPal-Longtouch" width="580" height="435">
 							<figcaption>
@@ -122,7 +123,7 @@
 				</div>
 
 				<div class="post">
-					<h2 class="title"><a name="tools">SeaPal Logbook and Tracking</a></h2>
+					<h2 class="title">SeaPal Logbook and Tracking</h2>
 					<div class="entry">
 						<figure><img src="images/SeaPal-Tracking.jpg" alt="SeaPal-Tracking" width="580" height="435">
 							<figcaption>
@@ -144,7 +145,7 @@
 				</div>
 
 				<div class="post">
-					<h2 class="title"><a name="iphone">SeaPal on the iPhone</a></h2>
+					<h2 class="title">SeaPal on the iPhone</h2>
 					<div class="entry">
 						<figure><img src="images/SeaPal-iPhone-LaCoruna.jpg" alt="SeaPal-iPhone-LaCoruna" width="218" height="292">
 							<figcaption>
@@ -202,18 +203,6 @@
 		<!-- end #page -->
 	</div>
 
-	<div id="fb-root"></div>
-	<script>
-		( function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id))
-					return;
-				js = d.createElement(s);
-				js.id = id;
-				js.src = "../connect.facebook.net/en_US/all.js#xfbml=1";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-	</script>
 
 	<?php
 	include ("footer.php");

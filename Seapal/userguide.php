@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<?php
-	include ("header.php");
+		$navsection = 'userguide';
+		include ("header.php");
 	?>
 
 	<div id="wrapper">
 		<div id="page" class="container">
 			<div id="content">
 				<div class="post">
-					<h2 class="title"><a name="Installing_SeaPal">Installing SeaPal</a></h2>
+					<h2 class="title">Installing SeaPal</h2>
 					<div class="entry">
 						<p>
 							Installing SeaPal on the iPad or iPhone is simple and straight forward. Just search for SeaPal in the App Store, select it and install it. SeaPal comes free of charge, so it is very easy to give it a test drive. During the installation you will see the icon of the SeaPal application show up on your screen. Now you are ready to role.
@@ -17,7 +18,7 @@
 					</div>
 				</div>
 				<div class="post">
-					<h2 class="title"><a name="Starting_SeaPal">Starting SeaPal</a></h2>
+					<h2 class="title">Starting SeaPal</h2>
 					<div class="entry">
 						<p>
 							Tap on the SeaPal application icon to start SeaPal. If you have GPS on your mobile device, the app will ask you if it is ok to access your current position. This of course makes a lot of sense in a navigational app, so please do approve that.
@@ -36,7 +37,7 @@
 					</div>
 				</div>
 				<div class="post">
-					<h2 class="title"><a name="Map_Selection">Map Selection</a></h2>
+					<h2 class="title">Map Selection</h2>
 					<div class="entry">
 						<p>
 							The map view initially shows maps from Google Maps. This is convenient because it downloads fast and is familiar to most. It is excellent for overview and orientation, but it is not very good for navigational purposes. These maps were created primarily for navigation with cars and not with sailors in mind. The shore line and especially harbors can be very imprecise. So you should know how to switch to different map views. For this, tap on the menu button at the top left.
@@ -124,18 +125,6 @@
 		<!-- end #page -->
 	</div>
 
-	<div id="fb-root"></div>
-	<script>
-		( function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id))
-					return;
-				js = d.createElement(s);
-				js.id = id;
-				js.src = "../connect.facebook.net/en_US/all.js#xfbml=1";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-	</script>
 
 	<?php
 	include ("footer.php");

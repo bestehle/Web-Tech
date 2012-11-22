@@ -1,3 +1,19 @@
+	<div id="fb-root"></div>
+	<script>
+		( function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id))
+					return;
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "../connect.facebook.net/en_US/all.js#xfbml=1";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+
+</div>
+</div>
 <div id="footer-content" class="container">
 	<div id="footer-bg">
 		<div id="column1">
@@ -36,8 +52,6 @@
 
 			<div class="fb-like" data-href="http://www.SeaPal.info" data-send="true" data-width="300" data-show-faces="true"></div>
 
-		</div>
-
 		<!-- Twitter button-->
 		<div>
 			<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
@@ -53,6 +67,8 @@
 				}(document, "script", "twitter-wjs");
 			</script>
 		</div>
+		</div>
+
 		<div id="column3">
 			<h2>Further Information</h2>
 			<p>
@@ -60,17 +76,18 @@
 			</p>
 			<ul class="list-style2">
 				<li class="first">
-					<a href="impressum.html">Impressum</a>
+					<a href="impressum.php">Impressum</a>
 				</li>
 				<li>
-					<a href="legal.html">Legal notice</a>
+					<a href="legal.php">Legal notice</a>
 				</li>
 			</ul>
 		</div>
+		<div class="cleaner"></div>
 	</div>
-</div>
-<div id="footer">
-	<p>
-		© 2012 IBN Verlag
-	</p>
+	<div id="footer">
+		<p>
+			© 2012 IBN Verlag
+		</p>
+	</div>
 </div>
