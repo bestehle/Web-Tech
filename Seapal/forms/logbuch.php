@@ -7,11 +7,11 @@
     <body>
         <form action="logbuchPHP.php" method="post">
             <?php
-            $con = mysql_connect("localhost", "benni", "meteor");
+            $con = mysql_connect("localhost", "root", "");
             if (!$con) {
             die('Could not connect:' . mysql_error());
             }
-            mysql_select_db("web-tech", $con);
+            mysql_select_db("web_tech", $con);
 
             $result = mysql_query("SELECT * FROM logbuch");
             $row = mysql_fetch_array($result);

@@ -6,11 +6,11 @@
     </head>
     <body>
         <h2><?php
-        $con = mysql_connect("localhost", "benni", "meteor");
+        $con = mysql_connect("localhost", "root", "");
         if (!$con) {
             die('Could not connect:' . mysql_error());
         }
-        mysql_select_db("web-tech", $con);
+        mysql_select_db("web_tech", $con);
 
         $sql = "INSERT INTO logbuch (`bootsname`, `registernr`, `segelzeichen`, `heimathafen`,
                              `yachtclub`, `eigner`, `versicherung`, `rufzeichen`, `typ`,
