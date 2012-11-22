@@ -25,7 +25,8 @@
 					<li>
 						<a href="http://itunes.apple.com/us/app/seapal/id561903907?mt=8&amp;uo=4" target="itunes_store"><img src="images/Icon-Small-50.png" alt="Icon-Small-50" width="50" height="50" /> iPad App Store</a>
 					</li>
-					<li><img src="images/Icon-Small-50.png" alt="Icon-Small-50" width="50" height="50" /> iPhone App Store</a>
+					<li>
+						<a href="http://itunes.apple.com/us/app/seapal/id561903907?mt=8&amp;uo=4" target="itunes_store"><img src="images/Icon-Small-50.png" alt="Icon-Small-50" width="50" height="50" /> iPhone App Store</a>
 					</li>
 				</ul>
 
