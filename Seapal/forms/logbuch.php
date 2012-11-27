@@ -19,6 +19,7 @@
 			<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 			<script type="text/javascript">
 				$(function() {
+					loadInfoTable();
 					$('input').keyup(function(e) {
 						if (e.keyCode == 13) {//Enter is pressed
 							readform();
@@ -31,20 +32,24 @@
 					for (var i = 0; i < all.size(); i++) {
 						data[all[i].name] = all[i].value;
 					}
-					send(JSON.stringify(data, null,2));
+					send(JSON.stringify(data, null, 2));
 				}
-				
-				function send(message)	{
+
+				function send(message) {
 					$.ajax({
-						type: "POST",
-						url: "logbuchPHP.php",
-						data: {'action':'send',
-								'message':message
-							},
-						dataType: "json",
-						success: function(data){
-							alert(data);
-						}					});				}
+						type : "POST",
+						url : "logbuchPHP.php",
+						data : {
+							'action' : 'send',
+							'message' : message
+						},
+						dataType : "json",
+						success : function(data) {
+							if (data == true)
+								alert("ÜBERTRAGEN");
+							else
+								alert(data);
+						}					});				}
 			</script>
 
 			<h1>Logbuch</h1>
@@ -162,6 +167,62 @@
 					</td>
 				</tr>
 			</table>
+		</form>
+		<form>
+
+			<script type="text/javascript">
+				function addRow(tableID, values_array) {
+
+					var table = document.getElementById(tableID);
+
+					var rowCount = table.rows.length;
+					var row = table.insertRow(rowCount);
+
+					for (var i = 0; i < values_array.length; i++) {
+						var cell = row.insertCell(i);
+						var element = document.createTextNode(values_array[i]);
+						cell.appendChild(element);
+					}
+				}
+
+				function loadInfoTable() {
+					var result = request();
+
+				}
+
+				function request() {
+					$.ajax({
+
+						type : "POST",
+						url : "logbuchPHP.php",
+						data : {
+							'action' : 'request'
+						},
+						dataType : "json",
+						success : function(data) {
+							var rows = JSON.parse(data);
+
+							for (var i = 0; i < rows.length; i++) {
+								addRow("infotable", new Array(rows[i].bootsname, rows[i].typ, rows[i].konstrukteur, rows[i].laenge, rows[i].eigner));
+							};
+
+						}
+					});
+				}
+
+			</script>
+
+			<table id="infotable" border="1">
+				<tr>
+					<td>Bootsname</td>
+					<td>Bootstyp</td>
+					<td>Konstrukteur</td>
+					<td>Länge</td>
+					<td>Inhaber</td>
+					<td></td>
+				</tr>
+			</table>
+
 		</form>
 	</body>
 </html>

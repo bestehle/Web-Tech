@@ -1,52 +1,70 @@
 <?php
 
-$data = $_POST['message'];
+$action = $_POST['action'];
 
-echo json_encode($data);
+switch($action) {
+	case 'send' :
+		send();
+		break;
 
+	case 'request' :
+		update();
+		break;
+}
 
-// 
-// 
-// $con = mysql_connect("localhost", "root", "");
-// if (!$con) {
-	// die('Could not connect:' . mysql_error());
-// }
-// mysql_select_db("seapal_db", $con);
-// 
-// $sql = "INSERT INTO logbuch (`bootsname`, `registernr`, `segelzeichen`, `heimathafen`,
-                             // `yachtclub`, `eigner`, `versicherung`, `rufzeichen`, `typ`,
-                             // `konstrukteur`, `laenge`, `breite`, `tiefgang`, `masthoehe`,
-                             // `verdraengung`, `rigart`, `baujahr`, `motor`, `tankgroesse`,
-                             // `wassertankgroesse`, `abwassertankgroesse`, `grosssegelgroesse`,
-                             // `genuagroesse`, `spigroesse`) 
-        // VALUES ('$_POST[bootsname]',
-        // '$_POST[registernr]',
-        // '$_POST[segelzeichen]',
-        // '$_POST[heimathafen]',
-        // '$_POST[yachtclub]',
-        // '$_POST[eigner]',
-        // '$_POST[versicherung]',
-        // '$_POST[rufzeichen]',
-        // '$_POST[typ]',
-        // '$_POST[konstrukteur]',
-        // '$_POST[laenge]',
-        // '$_POST[breite]',
-        // '$_POST[tiefgang]',
-        // '$_POST[masthoehe]',
-        // '$_POST[verdraengung]',
-        // '$_POST[rigart]',
-        // '$_POST[baujahr]',
-        // '$_POST[motor]',
-        // '$_POST[tankgroesse]',
-        // '$_POST[wassertankgroesse]',
-        // '$_POST[abwassertankgroesse]',
-        // '$_POST[grosssegelgroesse]',
-        // '$_POST[genuagroesse]',
-        // '$_POST[spigroesse]')";
-// 
-// if (!mysql_query($sql, $con)) {
-	// die('Error: ' . mysql_error());
-// }
-// echo "Übertragen";
-// mysql_close($con);
+function update() {
+
+	$select = "SELECT bootsname, typ, konstrukteur, laenge, eigner FROM boot";
+	$result = executeSQL($select);
+
+	$json = array();
+	for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
+		$json[$i] =  $row ;
+	}
+	echo json_encode(json_encode($json));
+}
+
+function send() {
+	$data = $_POST['message'];
+
+	$all = json_decode($data);
+	$insert_string = "INSERT INTO boot (";
+
+	foreach ($all as $key => $value) {
+		$insert_string = $insert_string . $key . ", ";
+	}
+
+	$insert_string = substr($insert_string, 0, -2) . " ) VALUES (";
+
+	foreach ($all as $key => $value) {
+		$insert_string = $insert_string . "'" . $value . "', ";
+	}
+
+	$insert_string = substr($insert_string, 0, -2) . " )";
+
+	$return = executeSQL($insert_string);
+
+	echo json_encode($return);
+}
+
+function executeSQL($string = '') {
+
+	$con = mysql_connect("localhost", "root", "");
+	if (!$con) {
+		fwrite(fopen('fail.txt', 'a'), 'Could not connect:' . mysql_error());
+		die('Could not connect:' . mysql_error());
+	}
+	mysql_select_db("seapal_db", $con);
+
+	$re = mysql_query($string, $con);
+
+	if (!$re) {
+		fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());
+		$re = mysql_error();
+		// die('Error: ' . mysql_error());
+	}
+	mysql_close($con);
+
+	return $re;
+}
 ?>
