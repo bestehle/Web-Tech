@@ -6,51 +6,8 @@
 	</head>
 	<body>
 		<form>
-			<!--             <?php
-			$con = mysql_connect("localhost", "root", "");
-			if (!$con) {
-			die('Could not connect:' . mysql_error());
-			}
-			mysql_select_db("web_tech", $con);
-
-			$result = mysql_query("SELECT * FROM logbuch");
-			$row = mysql_fetch_array($result);
-			?> -->
 			<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-			<script type="text/javascript">
-				$(function() {
-					loadInfoTable();
-					$('input').keyup(function(e) {
-						if (e.keyCode == 13) {//Enter is pressed
-							readform();
-						}
-					});
-
-				});				function readform() {
-					var data = {};
-					var all = $('#logtable input');
-					for (var i = 0; i < all.size(); i++) {
-						data[all[i].name] = all[i].value;
-					}
-					send(JSON.stringify(data, null, 2));
-				}
-
-				function send(message) {
-					$.ajax({
-						type : "POST",
-						url : "logbuchPHP.php",
-						data : {
-							'action' : 'send',
-							'message' : message
-						},
-						dataType : "json",
-						success : function(data) {
-							if (data == true)
-								alert("ÜBERTRAGEN");
-							else
-								alert(data);
-						}					});				}
-			</script>
+			<script src="logbuchJS.js"></script>
 
 			<h1>Logbuch</h1>
 			<table id="logtable" cellpadding="5">
@@ -169,49 +126,6 @@
 			</table>
 		</form>
 		<form>
-
-			<script type="text/javascript">
-				function addRow(tableID, values_array) {
-
-					var table = document.getElementById(tableID);
-
-					var rowCount = table.rows.length;
-					var row = table.insertRow(rowCount);
-
-					for (var i = 0; i < values_array.length; i++) {
-						var cell = row.insertCell(i);
-						var element = document.createTextNode(values_array[i]);
-						cell.appendChild(element);
-					}
-				}
-
-				function loadInfoTable() {
-					var result = request();
-
-				}
-
-				function request() {
-					$.ajax({
-
-						type : "POST",
-						url : "logbuchPHP.php",
-						data : {
-							'action' : 'request'
-						},
-						dataType : "json",
-						success : function(data) {
-							var rows = JSON.parse(data);
-
-							for (var i = 0; i < rows.length; i++) {
-								addRow("infotable", new Array(rows[i].bootsname, rows[i].typ, rows[i].konstrukteur, rows[i].laenge, rows[i].eigner));
-							};
-
-						}
-					});
-				}
-
-			</script>
-
 			<table id="infotable" border="1">
 				<tr>
 					<td>Bootsname</td>
@@ -222,7 +136,7 @@
 					<td></td>
 				</tr>
 			</table>
-
 		</form>
+		
 	</body>
 </html>

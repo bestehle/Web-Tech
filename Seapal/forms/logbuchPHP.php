@@ -8,11 +8,27 @@ switch($action) {
 		break;
 
 	case 'request' :
-		update();
+		request();
+		break;
+		
+	case 'loadData' :
+		loadData();
 		break;
 }
 
-function update() {
+function loadData() {
+	$rowID = $_POST['message'];
+	
+	$select = "SELECT * FROM boot WHERE bootsname=" . "'" . $rowID . "'";
+	$result = executeSQL($select);
+
+	$row = mysql_fetch_array($result, MYSQL_ASSOC);
+	echo json_encode(json_encode($row));
+}
+
+
+
+function request() {
 
 	$select = "SELECT bootsname, typ, konstrukteur, laenge, eigner FROM boot";
 	$result = executeSQL($select);
@@ -51,7 +67,7 @@ function executeSQL($string = '') {
 
 	$con = mysql_connect("localhost", "root", "");
 	if (!$con) {
-		fwrite(fopen('fail.txt', 'a'), 'Could not connect:' . mysql_error());
+		// fwrite(fopen('fail.txt', 'a'), 'Could not connect:' . mysql_error());
 		die('Could not connect:' . mysql_error());
 	}
 	mysql_select_db("seapal_db", $con);
@@ -59,8 +75,7 @@ function executeSQL($string = '') {
 	$re = mysql_query($string, $con);
 
 	if (!$re) {
-		fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());
-		$re = mysql_error();
+		fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());		$re = mysql_error();
 		// die('Error: ' . mysql_error());
 	}
 	mysql_close($con);
