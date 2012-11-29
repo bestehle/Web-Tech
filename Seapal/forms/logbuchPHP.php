@@ -10,7 +10,7 @@ switch($action) {
 	case 'request' :
 		request();
 		break;
-		
+
 	case 'loadData' :
 		loadData();
 		break;
@@ -18,15 +18,13 @@ switch($action) {
 
 function loadData() {
 	$rowID = $_POST['message'];
-	
+
 	$select = "SELECT * FROM boot WHERE bootsname=" . "'" . $rowID . "'";
 	$result = executeSQL($select);
 
 	$row = mysql_fetch_array($result, MYSQL_ASSOC);
 	echo json_encode(json_encode($row));
 }
-
-
 
 function request() {
 
@@ -35,10 +33,9 @@ function request() {
 
 	$json = array();
 	for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
-		$json[$i] =  $row ;
+		$json[$i] = $row;
 	}
-	echo json_encode(json_encode($json));
-}
+	echo json_encode(json_encode($json));}
 
 function send() {
 	$data = $_POST['message'];

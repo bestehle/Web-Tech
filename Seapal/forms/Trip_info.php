@@ -13,18 +13,6 @@
 
 				</tr>
 				
-				<?php 
-					$con=mysql_connect("localhost", "root", "");
-					if(!$con)
-					{
-						die("Could not connect: " .mysql_error());
-					}
-					mysql_select_db("web_tech", $con);
-					$result = mysql_query("SELECT * FROM trip_infp");
-					$row = mysql_fetch_array($result);
-					
-				?>
-				
 				<tr >
 					<td><label for="von">Von</label></td>
 					<td><input type="text" name="von" value="<?php echo $row['Von']; ?>"></td>

@@ -27,9 +27,10 @@ function send(message) {
 		},
 		dataType : "json",
 		success : function(data) {
-			if (data == true)
+			if (data == true) {
 				alert("ÜBERTRAGEN");
-			else
+				loadInfoTable();
+			} else
 				alert(data);
 		}
 	});
@@ -53,11 +54,10 @@ function addRow(tableID, values_array) {
 	var element = document.createElement('input');
 	element.setAttribute('type', 'button');
 	element.onclick = function() {
-		window.open('trip_info_main.php');
+		window.open('Trip_info.php');
 	}
 	cell.appendChild(element);
-	
-	
+
 	row.style.cursor = "pointer";
 	row.onclick = function() {
 		loadData(row.firstChild.innerHTML);
@@ -83,7 +83,13 @@ function loadData(rowID) {
 }
 
 function loadInfoTable() {
-	var result = request();
+	// var rowsLength = document.getElementById("infotable").rows.length;
+	request();
+	// var rows = JSON.parse(result);
+	// alert(rowsLength);
+	// for (var i = rowsLength; i < rows.length; i++) {
+		// addRow("infotable", new Array(rows[i].bootsname, rows[i].typ, rows[i].konstrukteur, rows[i].laenge, rows[i].eigner));
+	// };
 
 }
 
@@ -97,12 +103,11 @@ function request() {
 		},
 		dataType : "json",
 		success : function(data) {
+			var rowsLength = document.getElementById("infotable").rows.length - 1;
 			var rows = JSON.parse(data);
-
-			for (var i = 0; i < rows.length; i++) {
+			for (var i = rowsLength; i < rows.length; i++) {
 				addRow("infotable", new Array(rows[i].bootsname, rows[i].typ, rows[i].konstrukteur, rows[i].laenge, rows[i].eigner));
 			};
-
 		}
 	});
 }
