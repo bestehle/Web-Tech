@@ -14,6 +14,10 @@ switch($action) {
 	case 'loadData' :
 		loadData();
 		break;
+		
+	case 'delete' :
+		deleteBoot();
+		break;
 }
 
 function loadData() {
@@ -60,6 +64,16 @@ function send() {
 	echo json_encode($return);
 }
 
+function deleteBoot() {
+	$name = $_POST['message'];		
+	
+	$delete = "DELETE FROM boot where bootsname=" . "'" . $name . "'";
+	$result = executeSQL($delete);
+	echo json_encode($result);	
+	
+}
+
+
 function executeSQL($string = '') {
 
 	$con = mysql_connect("localhost", "root", "");
@@ -76,7 +90,7 @@ function executeSQL($string = '') {
 		// die('Error: ' . mysql_error());
 	}
 	mysql_close($con);
-
+	
 	return $re;
 }
 ?>

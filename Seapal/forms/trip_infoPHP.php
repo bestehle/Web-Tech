@@ -1,28 +1,71 @@
 <?php
-	$con=mysql_connect("localhost", "root", "");
-	if(!$con)
-	{
-		die("Could not connect: " .mysql_error());
-	}
 
-	mysql_select_db("web_tech", $con);
+$action = $_POST['action'];
 
+switch($action) {
+	case 'requestTrips' :
+		requestTrips();
+		break;
+	case 'requestTripInfo' :
+		requestTripInfo();
+		break;
 
-//----------INSERT------------
+}
 
-	$sql="INSERT INTO trip_infp (trip , von, nach, skipper, crew, 
-								start, ende, dauer, motor, tank ) 
-	VALUES
-	('$_POST[triptitle]', '$_POST[von]', '$_POST[nach]', '$_POST[skipper]', '$_POST[crew]', 
-	'$_POST[start]', '$_POST[ende]', '$_POST[dauer]', '$_POST[motor]', '$_POST[tank]') ";
+function requestTripInfo() {
+	$name = $_POST['message'];
+
+	$select = "SELECT * FROM trip WHERE trip_title=" . "'" . $name . "'";
+	$result = executeSQL($select);
+
+	$row = mysql_fetch_array($result, MYSQL_ASSOC);
 	
-	if(!mysql_query($sql, $con))
-	{
-		die("Error: " .mysql_error());
-	} else {
-		
-	echo "1 record added";
+	echo json_encode(json_encode($row));
+	
+}
+
+
+function requestTrips() {
+	$name = $_POST['message'];
+	/*$select = "SELECT trip_title, von, nach, skipper, start FROM trip t, boot b WHERE b.trip=
+							(SELECT trip FROM boot WHERE bootsname=" ."'". $name."'". ")";*/
+							
+	$select = "SELECT trip_title, von, nach, skipper, start FROM trip WHERE bootsname=" ."'". $name."'";						
+	
+	$result = executeSQL($select);
+	
+	$json = array();
+	for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
+		$json[$i] = $row;
 	}
 	
+	echo json_encode(json_encode($json));
+
+}
+
+function executeSQL($string = '') {
+	
+	$con = mysql_connect("localhost", "root", "");
+	if (!$con) {
+		  fwrite(fopen('fail.txt', 'a'), 'Could not connect:' . mysql_error());
+
+		die('Could not connect:' . mysql_error());
+	}
+	mysql_select_db("seapal_db", $con);
+
+	$re = mysql_query($string, $con);
+
+	if (!$re) {
+		fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());
+
+		$re = mysql_error();
+		// die('Error: ' . mysql_error());
+
+	}
 	mysql_close($con);
+
+	return $re;
+}
+
+
 ?>

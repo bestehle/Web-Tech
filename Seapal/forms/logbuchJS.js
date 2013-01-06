@@ -13,6 +13,16 @@ function readform() {
 	var all = $('#logtable input');
 	for (var i = 0; i < all.size(); i++) {
 		data[all[i].name] = all[i].value;
+		if(all[i].name == 'baujahr' || all[i].name == 'laenge' || all[i].name == 'tankgroesse' || 
+			all[i].name == 'breite' || all[i].name == 'wassertankgroesse' || all[i].name == 'tiefgang' || 
+			all[i].name == 'abwassertankgroesse' || all[i].name == 'masthoehe' || all[i].name == 'grosssegelgroesse' || 
+			all[i].name == 'verdraengung' || all[i].name == 'genuagroesse' || all[i].name == 'spigroesse') {
+				if ( isNaN( parseFloat(all[i].value) ) ) {
+					alert("Für " + "'" + all[i].name + "'" + " wurde ein falscher Wert angegeben\n" + 
+						"Bitte eine Zahl eingeben");
+					return;
+				}
+		}
 	}
 	send(JSON.stringify(data, null, 2));
 }
@@ -29,12 +39,12 @@ function send(message) {
 		success : function(data) {
 			if (data == true) {
 				alert("ÜBERTRAGEN");
-				loadInfoTable();
+				window.location.reload();
 			} else
 				alert(data);
 		}
 	});
-
+	
 }
 
 function addRow(tableID, values_array) {
@@ -54,9 +64,35 @@ function addRow(tableID, values_array) {
 	var element = document.createElement('input');
 	element.setAttribute('type', 'button');
 	element.onclick = function() {
-		window.open('Trip_info.php');
+  		window.location.href = "trips.php?name=" + values_array[0]; 
+	}
+	var cell2 = row.insertCell(values_array.length + 1);
+	var element2 = document.createElement('input');
+	element2.setAttribute('type', 'button');
+	element2.onclick = function() {
+  		var antwort = confirm("Soll das Boot " + "'" + values_array[0] + "'" + " gelöscht werden?");
+  		if(antwort) {
+  			$.ajax({
+				type : "POST",
+				url : "logbuchPHP.php",
+				data : {
+					'action' : 'delete',
+					'message' : values_array[0]
+				},
+				dataType : "json",
+				success : function(data) {
+					var entry = JSON.parse(data);
+					if(entry) {
+						alert("'" + values_array[0] + "'" + " gelöscht");
+					} else {
+						alert("'" + values_array[0] + "'" + " konnte nicht gelöscht werden");
+					}
+					window.location.reload();
+				}
+			});  		}
 	}
-	cell.appendChild(element);
+	
+	cell.appendChild(element);	cell2.appendChild(element2);
 
 	row.style.cursor = "pointer";
 	row.onclick = function() {
@@ -77,20 +113,13 @@ function loadData(rowID) {
 		success : function(data) {
 			var entry = JSON.parse(data);
 			for (key in entry) {
-				document.getElementsByName(key)[0].value = entry[key];
-			}		}
+				document.getElementsByName(key)[0].value = entry[key];			}
+					}
 	});
 }
 
 function loadInfoTable() {
-	// var rowsLength = document.getElementById("infotable").rows.length;
 	request();
-	// var rows = JSON.parse(result);
-	// alert(rowsLength);
-	// for (var i = rowsLength; i < rows.length; i++) {
-		// addRow("infotable", new Array(rows[i].bootsname, rows[i].typ, rows[i].konstrukteur, rows[i].laenge, rows[i].eigner));
-	// };
-
 }
 
 function request() {

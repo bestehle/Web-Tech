@@ -1,12 +1,10 @@
 <?php
 $con = mysql_connect($server = "localhost", $username = "root", $password = "123456");
 
-if(!$con)
-{
+if (!$con) {
 	die("Could not connect:" . mysql_error());
 }
 mysql_select_db("seapal", $con);
-
 
 $sql = "INSERT INTO EntryInfo (Name, PositionN, MinutesN, SecondsN, 
 											PositionE, MinutesE, SecondsE, COG, SOG, BTM, 
@@ -29,13 +27,11 @@ VALUES
 ('$_POST[ForeSail]'),
 ('$_POST[MainSail]')";
 
-if(!mysql_query($sql,$con))
-{
-	die("Error: " . mysql_error());	
+if (!mysql_query($sql, $con)) {
+	die("Error: " . mysql_error());
 }
 
 echo "1 record added";
 
 mysql_close($con);
-
 ?>

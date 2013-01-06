@@ -126,6 +126,7 @@
 			</table>
 		</form>
 		<form>
+			<h2>Gespeicherte Boote</h2>
 			<table id="infotable" border="1">
 				<tr>
 					<td>Bootsname</td>
@@ -133,6 +134,7 @@
 					<td>Konstrukteur</td>
 					<td>Länge</td>
 					<td>Inhaber</td>
+					<td></td>
 					<td></td>
 				</tr>
 			</table>
