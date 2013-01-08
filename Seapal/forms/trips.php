@@ -7,10 +7,14 @@
 	<body>
 		
 		<form>
-			<h1>Tripübersicht</h1>
+			<h1 id="ueberschrift">Tripübersicht</h1>
 			
 			<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 			<script src="tripsJS.js"></script>
+			
+			
+			<input type="button" id="addTrip" value="+" />
+			<br></br>
 			
 			<table id="tripsTable" border="1">
 				<tr>

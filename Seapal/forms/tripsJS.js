@@ -1,6 +1,17 @@
 $(function() {
 	
-	loadTripsTable(getParam('name'));
+	loadTripsTable(getParam('name'));
+	
+		
+	var ueberschrift = document.getElementById('ueberschrift');
+	var boatName = document.createTextNode(" für " + "'" + getParam('name') + "'");
+	ueberschrift.appendChild(boatName);
+	
+	
+	var element = document.getElementById('addTrip');
+	element.onclick = function() {
+  		window.location.href = "trip_info_insert.php?name=" + getParam('name'); 
+	}
 });
 
 function getParam(variable){ 

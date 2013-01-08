@@ -13,13 +13,21 @@ function readform() {
 	var all = $('#logtable input');
 	for (var i = 0; i < all.size(); i++) {
 		data[all[i].name] = all[i].value;
+		
+		if(all[i].name == 'bootsname') {
+			if(all[i].value.replace(/\s/g,"") == "") {
+				alert("Bitte einen Namen für das Boot angeben");
+				return;
+			}
+		}
+		
 		if(all[i].name == 'baujahr' || all[i].name == 'laenge' || all[i].name == 'tankgroesse' || 
 			all[i].name == 'breite' || all[i].name == 'wassertankgroesse' || all[i].name == 'tiefgang' || 
 			all[i].name == 'abwassertankgroesse' || all[i].name == 'masthoehe' || all[i].name == 'grosssegelgroesse' || 
 			all[i].name == 'verdraengung' || all[i].name == 'genuagroesse' || all[i].name == 'spigroesse') {
 				if ( isNaN( parseFloat(all[i].value) ) ) {
 					alert("Für " + "'" + all[i].name + "'" + " wurde ein falscher Wert angegeben\n" + 
-						"Bitte eine Zahl eingeben");
+						"Bitte eine korrekte Zahl eingeben");
 					return;
 				}
 		}

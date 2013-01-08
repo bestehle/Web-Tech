@@ -1,5 +1,10 @@
 $(function() {
 	loadTripTable(getParam('name'));
+	
+	var ueberschrift = document.getElementById('ueberschrift');
+	var boatName = document.createTextNode(" für " + "'" + getParam('name') + "'");
+	ueberschrift.appendChild(boatName);
+	
 });
 
 function getParam(variable){ 
