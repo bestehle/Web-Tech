@@ -61,22 +61,29 @@ function addRow(tableID, values_array) {
 
 	var rowCount = table.rows.length;
 	var row = table.insertRow(rowCount);
+	row.setAttribute('class', rowCount % 2 == 0 ? "even" : "odd" );
 
 	for (var i = 0; i < values_array.length; i++) {
 		var cell = row.insertCell(i);
 		var element = document.createTextNode(values_array[i]);
 		cell.appendChild(element);
 	}
-
-	var cell = row.insertCell(values_array.length);
-	var element = document.createElement('input');
-	element.setAttribute('type', 'button');
-	element.onclick = function() {
-  		window.location.href = "trips.php?name=" + values_array[0]; 
-	}
+
+    var cell = row.insertCell(values_array.length);
+    cell.setAttribute('class', 'func');
+    var element = document.createElement('img');
+    element.setAttribute('src', '../images_css/arrow_left.png');
+    element.setAttribute('width', '40');
+    element.setAttribute('height', '25');
+    element.onclick = function() {
+        window.location.href = "trips.php?name=" + values_array[0]; 
+    }
 	var cell2 = row.insertCell(values_array.length + 1);
-	var element2 = document.createElement('input');
-	element2.setAttribute('type', 'button');
+    cell2.setAttribute('class', 'func');
+	var element2 = document.createElement('img');
+    element2.setAttribute('src', '../images_css/symbol_delete.png');
+    element2.setAttribute('width', '25');
+    element2.setAttribute('height', '25');
 	element2.onclick = function() {
   		var antwort = confirm("Soll das Boot " + "'" + values_array[0] + "'" + " gelöscht werden?");
   		if(antwort) {
@@ -100,7 +107,7 @@ function addRow(tableID, values_array) {
 			});  		}
 	}
 	
-	cell.appendChild(element);	cell2.appendChild(element2);
+	cell.appendChild(element2);	cell2.appendChild(element);
 
 	row.style.cursor = "pointer";
 	row.onclick = function() {

@@ -64,8 +64,10 @@ function addRow(tableID, values_array) {
 	}
 
 	var cell = row.insertCell(values_array.length);
-	var element = document.createElement('input');
-	element.setAttribute('type', 'button');
+	var element = document.createElement('img');
+    element.setAttribute('src', '../images_css/arrow_left.png');
+    element.setAttribute('width', '40');
+    element.setAttribute('height', '25');
 	element.onclick = function() {
   		window.location.href = "trip_info.php?name=" + values_array[0]; 
 	}
