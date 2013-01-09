@@ -1,16 +1,14 @@
 $(function() {
-	
-	loadTripsTable(getParam('name'));
-	
+	loadTripsTable(getParam('bootsname'));
 		
 	var ueberschrift = document.getElementById('ueberschrift');
-	var boatName = document.createTextNode(" für " + "'" + getParam('name') + "'");
+	var boatName = document.createTextNode(" für " + "'" + getParam('bootsname') + "'");
 	ueberschrift.appendChild(boatName);
 	
 	
 	var element = document.getElementById('addTrip');
 	element.onclick = function() {
-  		window.location.href = "trip_info_insert.php?name=" + getParam('name'); 
+  		window.location.href = "trip_info_insert.php?bootsname=" + getParam('bootsname'); 
 	}
 });
 
@@ -67,7 +65,7 @@ function addRow(tableID, values_array) {
 	var element = document.createElement('input');
 	element.setAttribute('type', 'button');
 	element.onclick = function() {
-  		window.location.href = "trip_info.php?name=" + values_array[0]; 
+  		window.location.href = "trip_info.php?tripname=" + values_array[0] + "&bootsname=" + getParam('bootsname'); 
 	}
 	
 	cell.appendChild(element);

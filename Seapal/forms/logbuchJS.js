@@ -19,17 +19,23 @@ function readform() {
 				alert("Bitte einen Namen für das Boot angeben");
 				return;
 			}
+			continue;
 		}
 		
 		if(all[i].name == 'baujahr' || all[i].name == 'laenge' || all[i].name == 'tankgroesse' || 
 			all[i].name == 'breite' || all[i].name == 'wassertankgroesse' || all[i].name == 'tiefgang' || 
 			all[i].name == 'abwassertankgroesse' || all[i].name == 'masthoehe' || all[i].name == 'grosssegelgroesse' || 
 			all[i].name == 'verdraengung' || all[i].name == 'genuagroesse' || all[i].name == 'spigroesse') {
-				if ( isNaN( parseFloat(all[i].value) ) ) {
-					alert("Für " + "'" + all[i].name + "'" + " wurde ein falscher Wert angegeben\n" + 
-						"Bitte eine korrekte Zahl eingeben");
-					return;
+				
+				if(!all[i].value.replace(/\s/g,"") == "") {
+					
+					if ( isNaN(all[i].value) || all[i].value < 0  ) {
+						alert("Für " + "'" + all[i].name + "'" + " wurde ein falscher Wert angegeben\n" + 
+							"Bitte eine korrekte Zahl eingeben");
+						return;
+					}
 				}
+				continue;	
 		}
 	}
 	send(JSON.stringify(data, null, 2));
@@ -72,7 +78,7 @@ function addRow(tableID, values_array) {
 	var element = document.createElement('input');
 	element.setAttribute('type', 'button');
 	element.onclick = function() {
-  		window.location.href = "trips.php?name=" + values_array[0]; 
+  		window.location.href = "trips.php?bootsname=" + values_array[0]; 
 	}
 	var cell2 = row.insertCell(values_array.length + 1);
 	var element2 = document.createElement('input');
