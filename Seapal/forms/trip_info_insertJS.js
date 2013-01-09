@@ -150,6 +150,7 @@ function send(message) {
 		success : function(data) {
 			if (data == true) {
 				alert("ÜBERTRAGEN");
+				window.location.href = "trips.php?bootsname=" + getParam('bootsname');
 			} else
 				alert(data);
 		}

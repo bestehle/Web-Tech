@@ -54,8 +54,11 @@ function send(message) {
 			if (data == true) {
 				alert("ÜBERTRAGEN");
 				window.location.reload();
-			} else
-				alert(data);
+			} else {
+				alert("nicht so gut")
+			}
+				
+			
 		}
 	});
 	

@@ -1,5 +1,6 @@
 $(function() {
 	loadTripsTable(getParam('bootsname'));
+	
 		
 	var ueberschrift = document.getElementById('ueberschrift');
 	var boatName = document.createTextNode(" für " + "'" + getParam('bootsname') + "'");
@@ -28,6 +29,7 @@ function loadTripsTable(name) {
 	request(name);
 }
 
+
 function request(name) {
 	$.ajax({
 
@@ -47,6 +49,7 @@ function request(name) {
 		}
 	});
 }
+
 
 function addRow(tableID, values_array) {
 

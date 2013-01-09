@@ -14,7 +14,7 @@ switch($action) {
 	case 'loadData' :
 		loadData();
 		break;
-		
+
 	case 'delete' :
 		deleteBoot();
 		break;
@@ -47,6 +47,11 @@ function send() {
 	$all = json_decode($data);
 	$insert_string = "INSERT INTO boot (";
 
+	foreach ($all as $key => $value) { 		
+		$name = $value;
+		break;
+	}
+
 	foreach ($all as $key => $value) {
 		$insert_string = $insert_string . $key . ", ";
 	}
@@ -61,18 +66,22 @@ function send() {
 
 	$return = executeSQL($insert_string);
 
+	if (!$return) {
+		$delete = "DELETE FROM boot where bootsname=" . "'" . $name . "'";
+		executeSQL($delete);
+		$return = executeSQL($insert_string);
+	}
+
 	echo json_encode($return);
 }
 
 function deleteBoot() {
-	$name = $_POST['message'];		
-	
+	$name = $_POST['message'];
 	$delete = "DELETE FROM boot where bootsname=" . "'" . $name . "'";
 	$result = executeSQL($delete);
-	echo json_encode($result);	
-	
-}
+	echo json_encode($result);
 
+}
 
 function executeSQL($string = '') {
 
@@ -86,11 +95,11 @@ function executeSQL($string = '') {
 	$re = mysql_query($string, $con);
 
 	if (!$re) {
-		//fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());		$re = mysql_error();
+		//fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());		// $re = mysql_error();
 		// die('Error: ' . mysql_error());
 	}
 	mysql_close($con);
-	
+
 	return $re;
 }
 ?>

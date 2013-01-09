@@ -57,6 +57,7 @@
             <table id="entryTable" border="1">
                 <tr>
                     <td>Name</td>
+                    <td>Zeitpunkt</td>
                     <td>Latitude</td>
                     <td>Longitude</td>
                     <td>COG</td>
