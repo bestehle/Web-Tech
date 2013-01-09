@@ -11,7 +11,7 @@
             <script src="logbuchJS.js"></script>
 
             <h1>Logbuch</h1>
-            <table id="logtable" cellpadding="5">
+            <table id="logtable" class="form" cellpadding="5">
                 <tr>
                     <td><label for="bootsname">Bootsname</label></td>
                     <td><input type="text" name="bootsname" value="" /></td>
@@ -79,27 +79,33 @@
             </table>
         </form>
         <form>
-            <h1>Gespeicherte Boote</h2>
+            <h2>Gespeicherte Boote</h2>
             <div class="tableContainer">
-                <table id="infotable" class="tabelle">
+                <table  class="tabelle">
                     <thead class="fixedHeader">
                         <tr id="infoheader" class="tabelle_header">
-                            <td>Bootsname</td>
-                            <td>Bootstyp</td>
-                            <td>Konstrukteur</td>
-                            <td>Länge</td>
-                            <td>Inhaber</td>
-                            <td></td>
-                            <td></td>
+                            <td width="160px">Bootsname</td>
+                            <td width="160px">Bootstyp</td>
+                            <td width="160px">Konstrukteur</td>
+                            <td width="160px">Länge</td>
+                            <td width="160px">Inhaber</td>
+                            <td width="50px"></td>
+                            <td width="100px"></td>
                         </tr>
                     </thead>
-                    <tbody class="scrollContent"></tbody>
+                    <tbody id="infotable" class="scrollContent">
+                        <tr></tr>
+                    </tbody>
                 </table>
             </div>
         </form>
     </div>
     <div id="footer">
-        © 2012 IBN Verlag
+        <p>
+            © 2012 IBN Verlag
+        </p>
     </div>
     </body>
 </html>
+<!-- </html>
+-->
