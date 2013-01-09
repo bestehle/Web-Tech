@@ -8,7 +8,12 @@
 		<form>
 			
 			<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+			
+			<link rel="stylesheet" type="text/css" media="all" href="../Kalender/jsDatePick_ltr.min.css" />
+			<script type="text/javascript" src="../Kalender/jsDatePick.min.1.3.js"></script>
+			
 			<script src="trip_info_insertJS.js"></script>
+			
 			<h1 id="ueberschrift">Neuer Trip</h1>
 			
 			<table id="tripTable" cellpadding="5">
@@ -23,20 +28,26 @@
 					<td><input type="text" name="von" value=""></td>
 					
 					<td><label for="crew">Crew</label></td>
-					<td><textarea style="resize: none;" rows="3" name="crew" value=""></textarea></td>
+					<td><input name="crew" value=""></textarea></td>
 					
-					<td><label for="start">Start</label></td>
-					<td><input type="text" name="start" value="YYYY-MM-DD hh:mm:ss (hover CSS)"></td>
+					<td><label for="start">Start Datum</label></td>
+					<td><input type="text" name="startdatum" id="startdatum" value=""></td>
+					
+					<td><label for="startzeit">Start Zeit</label></td>
+					<td><input type="text" name="startzeit" id="startzeit" value=""></td>
 				</tr>
 				<tr>
 					<td><label for="nach">Nach</label></td>
 					<td><input  type="text" name="nach" value=""></td>
 					
-					<td><label for="ende">Ende</label></td>
-					<td><input type="text" name="ende" value="YYYY-MM-DD hh:mm:ss (hover CSS)"></td>
+					<td><label for="ende">Ende Datum</label></td>
+					<td><input type="text" name="endedatum" id="endedatum" value=""></td>
+					
+					<td><label for="endezeit">Ende Zeit</label></td>
+					<td><input type="text" name="endezeit" id="endezeit" value=""></td>
 					
 					<td><label for="motor">Motor(min)</label></td>
-					<td><input size="5" type="text" name="motor" value=""></td>
+					<td><input type="text" name="motor" value=""></td>
 				</tr>
 				<tr>
 					<td><label for="skipper">Skipper</label></td>

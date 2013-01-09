@@ -86,7 +86,7 @@ function executeSQL($string = '') {
 	$re = mysql_query($string, $con);
 
 	if (!$re) {
-		fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());		$re = mysql_error();
+		//fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());		$re = mysql_error();
 		// die('Error: ' . mysql_error());
 	}
 	mysql_close($con);

@@ -9,6 +9,9 @@ switch($action) {
 	case 'requestTripInfo' :
 		requestTripInfo();
 		break;
+	case 'send' :
+		send();
+		break;
 
 }
 
@@ -43,11 +46,36 @@ function requestTrips() {
 
 }
 
+function send() {
+	$data = $_POST['message'];
+
+	$all = json_decode($data);
+	$insert_string = "INSERT INTO trip (";
+
+	foreach ($all as $key => $value) {
+		$insert_string = $insert_string . $key . ", ";
+	}
+
+	$insert_string = substr($insert_string, 0, -2) . " ) VALUES (";
+
+	foreach ($all as $key => $value) {
+		$insert_string = $insert_string . "'" . $value . "', ";
+	}
+
+	$insert_string = substr($insert_string, 0, -2) . " )";
+
+	$return = executeSQL($insert_string);
+
+	echo json_encode($return);
+}
+
+
+
 function executeSQL($string = '') {
 	
 	$con = mysql_connect("localhost", "root", "");
 	if (!$con) {
-		  fwrite(fopen('fail.txt', 'a'), 'Could not connect:' . mysql_error());
+		//fwrite(fopen('fail.txt', 'a'), 'Could not connect:' . mysql_error());
 
 		die('Could not connect:' . mysql_error());
 	}

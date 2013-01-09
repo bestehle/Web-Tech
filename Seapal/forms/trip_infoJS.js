@@ -1,8 +1,8 @@
 $(function() {
-	loadTripTable(getParam('name'));
+	loadTripTable(getParam('tripname'));
 	
 	var ueberschrift = document.getElementById('ueberschrift');
-	var boatName = document.createTextNode(" für " + "'" + getParam('name') + "'");
+	var boatName = document.createTextNode(" für " + "'" + getParam('bootsname') + "'");
 	ueberschrift.appendChild(boatName);
 	
 });
@@ -51,32 +51,6 @@ function request(name) {
 	});
 }
 
-
-
-function addRow(tableID, values_array) {
-
-	var table = document.getElementById(tableID);
-
-	var rowCount = table.rows.length;
-	var row = table.insertRow(rowCount);
-
-	for (var i = 0; i < values_array.length; i++) {
-		var cell = row.insertCell(i);
-		var element = document.createTextNode(values_array[i]);
-		cell.appendChild(element);
-	}
-
-	var cell = row.insertCell(values_array.length);
-	var element = document.createElement('input');
-	element.setAttribute('type', 'button');
-	element.onclick = function() {
-  		window.location.href = "trip_info.php?name=" + values_array[0]; 
-	}
-	
-	cell.appendChild(element);
-
-	
-}
 
 function calcDuration(startTime, endTime) {
 	var endDate = endTime.split(" ")[0].split("-");

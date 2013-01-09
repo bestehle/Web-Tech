@@ -80,19 +80,26 @@
         </form>
         <form>
             <h1>Gespeicherte Boote</h2>
-            <table id="infotable" class="tabelle">
-                <tr id="infoheader" class="tabelle_header">
-                    <td>Bootsname</td>
-                    <td>Bootstyp</td>
-                    <td>Konstrukteur</td>
-                    <td>Länge</td>
-                    <td>Inhaber</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+            <div class="tableContainer">
+                <table id="infotable" class="tabelle">
+                    <thead class="fixedHeader">
+                        <tr id="infoheader" class="tabelle_header">
+                            <td>Bootsname</td>
+                            <td>Bootstyp</td>
+                            <td>Konstrukteur</td>
+                            <td>Länge</td>
+                            <td>Inhaber</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody class="scrollContent"></tbody>
+                </table>
+            </div>
         </form>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+        © 2012 IBN Verlag
+    </div>
     </body>
 </html>
