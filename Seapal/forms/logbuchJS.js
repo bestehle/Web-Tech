@@ -75,6 +75,7 @@ function addRow(tableID, values_array) {
 	for (var i = 0; i < values_array.length; i++) {
 		var cell = row.insertCell(i);
 		var element = document.createTextNode(values_array[i]);
+		cell.setAttribute('width', '160px');
 		cell.appendChild(element);
 	}
 

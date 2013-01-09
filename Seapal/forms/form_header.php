@@ -27,6 +27,6 @@
                 <!-- End Freebie -->
             </li>
         </ul>
-        <a id="rechts" class="button">Weiter</a>
+        <a id="rechts" class="button">Map</a>
     </div>
 

@@ -15,20 +15,30 @@
             <input type="button" id="addTrip" value="+" />
             <br>
             </br>
-
-            <table id="tripsTable" class="tabelle">
-                <tr class="tabelle_header">
-                    <td>Trip Titel</td>
-                    <td>Von</td>
-                    <td>Nach</td>
-                    <td>Skipper</td>
-                    <td>Start Datum</td>
-                    <td></td>
-                </tr>
-            </table>
+            <div class="tableContainer">
+                <table class="tabelle">
+                    <thead class="fixedHeader">
+                        <tr id="infoheader" class="tabelle_header">
+                            <td width="160px">Trip Titel</td>
+                            <td width="160px">Von</td>
+                            <td width="160px">Nach</td>
+                            <td width="160px">Skipper</td>
+                            <td width="160px">Start Datum</td>
+                            <td width="90px"></td>
+                        </tr>
+                    </thead>
+                    <tbody id="tripsTable" class="scrollContent">
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
         </form>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+        <p>
+            © 2012 IBN Verlag
+        </p>
+    </div>
     </body>
 </html>
 
