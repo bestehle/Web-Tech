@@ -5,6 +5,7 @@ $(function() {
 			readform();
 		}
 	});
+	document.getElementById("saveButton").onclick = readform;
 
 });
 

@@ -17,7 +17,6 @@
                 <!-- Start Freebie -->
                 <ul id="breadcrumbs">
                     <?php
-                    // $pages = array("Boot Info" => "logbuch.php", "Trips" => "trips.php", "Trip Info" => "trip_info.php", "Entry Info" => "entry_info.php");
 
                     foreach ($pages as $key => $value) {
                         echo "<li> <a href=\"$value\"> <span>$key</span> <span class=\"arrow\"></span> </a> </li>";
@@ -27,6 +26,18 @@
                 <!-- End Freebie -->
             </li>
         </ul>
-        <a id="rechts" class="button">Map</a>
+        <a class="button_rechts" href="../maps/map.php">Map</a>
+        <?php
+        if (isset($buttons)) {
+            foreach ($buttons as $key => $value) {
+                if (isset($value["href"])) {
+                    echo "<a class=\"button_rechts\" href=\"" .$value["href"] . "\">$key</a>";
+                }
+                if (isset($value["id"])) {
+                    echo "<a class=\"button_rechts\" id=\"" .$value["id"] . "\">$key</a>";
+                }
+            }
+        }
+    ?>
     </div>
 

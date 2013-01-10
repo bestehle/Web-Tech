@@ -21,7 +21,7 @@ $(function() {
 		if (e.keyCode == 13) {//Enter is pressed
 			readform();
 		}
-	});
+	});    document.getElementById("saveButton").onclick = readform;
 
 });
 

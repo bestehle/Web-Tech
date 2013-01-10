@@ -2,6 +2,7 @@
 <html>
     <?php
     $title = "Boot Info";
+    $buttons = array("speichern" => array("id" => "saveButton"));
     $pages = array("Boot Info" => "logbuch.php");
     include ("form_header.php");
     ?>

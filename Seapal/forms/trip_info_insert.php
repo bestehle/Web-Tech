@@ -2,8 +2,9 @@
 <html>
     <?php
     $title = "Trip Info";
-    $pages = array("Boot Info" => "logbuch.php", "Trips" => "trips.php?bootsname=" . $_GET["bootsname"],
-     "Trip Info" => "trip_info.php?bootsname=" . $_GET["bootsname"] );
+    $buttons = array("speichern" => array("id" => "saveButton"));
+    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"],
+    "Trip Info" => "trip_info.php?bootsname=" . $_GET["bootsname"]);
     include ("form_header.php");
     ?>
     <div id="wrapper">
