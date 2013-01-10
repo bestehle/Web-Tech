@@ -133,7 +133,7 @@ ul#breadcrumbs li:active .arrow {
  *  END FREEBIE STYLES
  */
 
-.button, .button_rechts {
+.button, .button_rechts, .button_rechts_active {
     overflow: hidden;
     border: 1px solid #cccccc;
     padding: 14px;
@@ -167,7 +167,18 @@ ul#breadcrumbs li:active .arrow {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#efefef',GradientType=0 ); /* IE6-9 */
 }
 
-.button_rechts {
+.button_rechts_active {
+    background: #dbdbdb; /* Old browsers */
+    background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%,#d3d3d3)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #dbdbdb 0%,#d3d3d3 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #dbdbdb 0%,#d3d3d3 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #dbdbdb 0%,#d3d3d3 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #dbdbdb 0%,#d3d3d3 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#d3d3d3',GradientType=0 ); /* IE6-9 */
+}
+
+.button_rechts, .button_rechts_active {
     float: right;
     cursor: pointer;
     margin-right: 10px;
