@@ -26,7 +26,7 @@
                 <!-- End Freebie -->
             </li>
         </ul>
-        <a class="button_rechts" href="../maps/map.php">Map</a>
+        <a class="button_rechts" href="../Map/map.php">Map</a>
         <?php
         if (isset($buttons)) {
             foreach ($buttons as $key => $value) {
