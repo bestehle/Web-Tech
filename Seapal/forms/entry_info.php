@@ -5,15 +5,19 @@
     include ("form_header.php");
     ?>
     <div id="wrapper">
-        <h1>Entry Info</h1>
+    	
+    	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script src="entry_infoJS.js"></script>
+    	
+        <h1 id="ueberschrift">Entry Info</h1>
 
         <form action="insert.php" method="post">
             <table id="entry_table" border="0" width="860px">
                 <tr>
-                    <td><label for="Name">Name</label><input type="text" name="Name" size="20" /></td>
+                    <td><label for="name">Name</label><input type="text" name="name" size="20"  /></td>
                 </tr>
                 <tr>
-                    <td><label for="Position">Position</label><input type="text" name="PositionN" size="10" /><label for="PositionN">"N</label><input type="text" name="PositionE" size="10" /><label for="PositionE">"E</label></td>
+                    <td><label for="position">Position</label><input type="text" name="PositionN" size="10" /><label for="PositionN">"N</label><input type="text" name="PositionE" size="10" /><label for="PositionE">"E</label></td>
                     <td><label for="COG">COG</label><input type="text" name="COG" size="10" /><label for="SOG" class="inline">SOG</label><input type="text" name="SOG" size="10" /></td>
                 </tr>
                 <tr>
