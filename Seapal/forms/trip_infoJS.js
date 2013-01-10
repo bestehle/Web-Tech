@@ -81,6 +81,7 @@ function addRow(tableID, values_array) {
 
 	var rowCount = table.rows.length;
 	var row = table.insertRow(rowCount);
+	row.setAttribute('class', rowCount % 2 == 0 ? "even" : "odd" );
 
 	for (var i = 0; i < values_array.length; i++) {
 		
@@ -96,12 +97,14 @@ function addRow(tableID, values_array) {
 		}
 		var cell = row.insertCell(i);
 		var element = document.createTextNode(values_array[i]);
+		cell.setAttribute('width', '160px');
 		cell.appendChild(element);
 	}
 
 	var cell = row.insertCell(values_array.length);
 	var element = document.createElement('img');
     element.setAttribute('src', '../images_css/arrow_left.png');
+    
     element.setAttribute('width', '40');
     element.setAttribute('height', '25');
 	element.onclick = function() {

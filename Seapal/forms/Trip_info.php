@@ -63,7 +63,7 @@
                             <td width="160px">Longitude</td>
                             <td width="160px">COG</td>
                             <td width="160px">SOG</td>
-                            <td width="90px"></td>
+                            <td width="100px"></td>
                         </tr>
                     </thead>
                     <tbody id="entryTable" class="scrollContent">
