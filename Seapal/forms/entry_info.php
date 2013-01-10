@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td><label for="position">Position</label></td>
-                    <td><input type="text" name="latitude" size="10" /><label for="PositionN">"N</label><input type="text" name="longitude" size="10" /><label for="PositionE">"E</label></td>
+                    <td><input type="text" name="latitude" size="10" /><label for="PositionN">N</label><input type="text" name="longitude" size="10" /><label for="PositionE">E</label></td>
                     <td><label for="COG">COG</label><input type="text" name="cog" size="10" /><label for="SOG" class="inline">SOG</label><input type="text" name="sog" size="10" /></td>
                 </tr>
                 <tr>

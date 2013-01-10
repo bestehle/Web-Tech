@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 10. Jan 2013 um 17:05
+-- Erstellungszeit: 10. Jan 2013 um 22:24
 -- Server Version: 5.5.27
 -- PHP-Version: 5.4.7
 
@@ -59,8 +59,7 @@ CREATE TABLE IF NOT EXISTS `boot` (
 --
 
 INSERT INTO `boot` (`bootsname`, `registernr`, `segelzeichen`, `heimathafen`, `yachtclub`, `eigner`, `versicherung`, `rufzeichen`, `typ`, `konstrukteur`, `laenge`, `breite`, `tiefgang`, `masthoehe`, `verdraengung`, `rigart`, `baujahr`, `motor`, `tankgroesse`, `wassertankgroesse`, `abwassertankgroesse`, `grosssegelgroesse`, `genuagroesse`, `spigroesse`) VALUES
-('aaaa', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 1997, '', 0, 0, 0, 0, 0, 0),
-('ab', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('ab', '', '', '', '', '', '', '', 'wolowitzi', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
 ('abc', '', '', '', '', '', '', '', 'wolowitz', '', 3, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
 ('abcdq', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
 ('abcdqq', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
@@ -128,9 +127,8 @@ CREATE TABLE IF NOT EXISTS `entry` (
 --
 
 INSERT INTO `entry` (`name`, `zeitpunkt`, `position`, `cog`, `sog`, `btm`, `dtm`, `fahrt_nach`, `manoever`, `vorsegel`, `grosssegel`, `trip`) VALUES
-('Wegpunkt1', '1:10', 1, 130, 1417.4, 0, 0, 0, '', '', '', 'rockamring'),
-('Wegpunkt2', '1:50', 2, 140, 1554.5, 0, 0, 0, '', '', '', 'rockamring'),
-('Wegpunkt3', '2:30', 3, 161, 1600.1, 0, 0, 0, '', '', '', 'rockamring');
+('Wegpunkt2', '1:50', 2, 140, 1554.5, 0, 0, 0, 'Change Sails', 'Genua1', 'reef 2', 'rockamring'),
+('Wegpunkt3', '2:30', 3, 161, 1600.1, 0, 0, 0, 'Jibe', 'Blister', 'full', 'rockamring');
 
 -- --------------------------------------------------------
 
