@@ -45,11 +45,10 @@
                     </select></td>
                 </tr>
                 <tr>
-                    <td><label for="manoever">Manöver</label>
-                    <select name="manoever">
                     <td><label for="manoever">Manöver</label></td>
                     <td>
                     <select name="manoever">
+
                         <option value="-" selected="selected">-</option>
                         <?php
                         $result = select("SELECT name FROM manoever");
