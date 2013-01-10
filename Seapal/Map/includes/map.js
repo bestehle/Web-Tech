@@ -12,77 +12,93 @@ var contextMenuOptions;
 var menuItems;
 
 function initialize() {
-	var mapTypeIds = ["roadmap", "satellite", "OSM"];
-	var mapOptions = {
-		center : new google.maps.LatLng(47.66, 9.16),
-		zoom : 14,
-		mapTypeId : google.maps.MapTypeId.ROADMAP,
-		disableDoubleClickZoom : true,
-		mapTypeControlOptions : {
-			mapTypeIds : mapTypeIds
-		}
-	};
-	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    configureButtons();
 
-	google.maps.event.addListener(map, 'center_changed', function() {
-		document.getElementById("lat").firstChild.nodeValue = formatLatitude(map.getCenter().lat());
-		document.getElementById("long").firstChild.nodeValue = formatLongitude(map.getCenter().lng());
-	})
+    var mapTypeIds = ["roadmap", "satellite", "OSM"];
+    var mapOptions = {
+        center : new google.maps.LatLng(47.66, 9.16),
+        zoom : 14,
+        mapTypeId : google.maps.MapTypeId.ROADMAP,
+        disableDoubleClickZoom : true,
+        mapTypeControlOptions : {
+            mapTypeIds : mapTypeIds
+        }
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-	google.maps.event.addListener(map, 'dblclick', function(event) {
-		if (document.getElementById("marks").checked) {
-			setMarker(event.latLng);
-		} else if (document.getElementById("route").checked) {
-			addLatLng(myRoute, event);
-		} else if (document.getElementById("crosshair").checked) {
-			deleteMarker(crosshair);
-			setCrosshair(event.latLng);
-		}
-	})
-	/** CONTEXT MENU
-	 *
-	 */
+    google.maps.event.addListener(map, 'center_changed', function() {
+        document.getElementById("lat").firstChild.nodeValue = formatLatitude(map.getCenter().lat());
+        document.getElementById("long").firstChild.nodeValue = formatLongitude(map.getCenter().lng());
+    })
 
-	//	create the ContextMenuOptions object
-	contextMenuOptions = {};
-	contextMenuOptions.classNames = {
-		menu : 'context_menu',
-		menuSeparator : 'context_menu_separator'
-	};
-	//	create an array of ContextMenuItem objects
-	menuItems = [];
-	menuItems.push({
-		className : 'context_menu_item',
-		eventName : 'delete',
-		label : 'Delete'
-	});
-	menuItems.push({
-		className : 'context_menu_item',
-		eventName : 'creatingRoutes',
-		label : 'Start a Route'
-	});
-	menuItems.push({
-		className : 'context_menu_item',
-		eventName : 'rename',
-		label : 'Rename'
-	});
+    google.maps.event.addListener(map, 'dblclick', function(event) {
+        if (document.getElementById("marks").className == "button_rechts_active") {
+            setMarker(event.latLng);
+        } else if (document.getElementById("route").className == "button_rechts_active") {
+            addLatLng(myRoute, event);
+        } else if (document.getElementById("crosshair").className == "button_rechts_active") {
+            deleteMarker(crosshair);
+            setCrosshair(event.latLng);
+        }
+    })
+    /** CONTEXT MENU
+     *
+     */
 
-	contextMenuOptions.menuItems = menuItems;
-	contextMenuCrosshair = new ContextMenu(map, contextMenuOptions);	contextMenuMarker = new ContextMenu(map, contextMenuOptions);	contextMenuRoute = new ContextMenu(map, contextMenuOptions);
+    //	create the ContextMenuOptions object
+    contextMenuOptions = {};
+    contextMenuOptions.classNames = {
+        menu : 'context_menu',
+        menuSeparator : 'context_menu_separator'
+    };
+    //	create an array of ContextMenuItem objects
+    menuItems = [];
+    menuItems.push({
+        className : 'context_menu_item',
+        eventName : 'delete',
+        label : 'Delete'
+    });
+    menuItems.push({
+        className : 'context_menu_item',
+        eventName : 'creatingRoutes',
+        label : 'Start a Route'
+    });
+    menuItems.push({
+        className : 'context_menu_item',
+        eventName : 'rename',
+        label : 'Rename'
+    });
 
-	/*
-	 *  Polyline
-	 */
+    contextMenuOptions.menuItems = menuItems;
+    contextMenuCrosshair = new ContextMenu(map, contextMenuOptions);    contextMenuMarker = new ContextMenu(map, contextMenuOptions);    contextMenuRoute = new ContextMenu(map, contextMenuOptions);
 
-	var polyOptions = {
-		strokeColor : '#FF0000',
-		strokeOpacity : 1.0,
-		strokeWeight : 4
-	}
-	var poly = new google.maps.Polyline(polyOptions);
-	poly.setMap(map);
+    /*
+     *  Polyline
+     */
 
-	myRoute = new routeObj();
-	myRoute.map = map;
-	myRoute.route = poly;
+    var polyOptions = {
+        strokeColor : '#FF0000',
+        strokeOpacity : 1.0,
+        strokeWeight : 4
+    }
+    var poly = new google.maps.Polyline(polyOptions);
+    poly.setMap(map);
+
+    myRoute = new routeObj();
+    myRoute.map = map;
+    myRoute.route = poly;
 }
+
+function configureButtons() {
+    document.getElementById('crosshair').className = 'button_rechts_active';
+    document.getElementById("marks").onclick = function(){setActiveButton("marks")};
+    document.getElementById("route").onclick = function(){setActiveButton("route")};
+    document.getElementById("crosshair").onclick = function(){setActiveButton("crosshair")};
+}
+
+function setActiveButton(button) {
+    document.getElementById('marks').className = 'button_rechts';
+    document.getElementById('route').className = 'button_rechts';
+    document.getElementById('crosshair').className = 'button_rechts';
+    document.getElementById(button).className = 'button_rechts_active';;
+}

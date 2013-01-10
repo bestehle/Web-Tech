@@ -3,8 +3,8 @@
 
     <?php
     $title = "Map";
-    // $buttons = array("speichern" => array("id" => "saveButton"));
-    $pages = array("Boot Info" => "logbuch.php");
+    $buttons = array("Crosshair" => array("id" => "crosshair"), "Marks" => array("id" => "marks"), "Route" => array("id" => "route"));
+    $pages = array("Boot Info" => "../forms/logbuch.php");
     include ("../forms/form_header.php");
     ?>
 
@@ -21,11 +21,6 @@
         <div>
             <p align="center">
                 <span id="lat"> </span><span id="long"> </span>
-                <form name="formex">
-                    <h3><input type="radio" name="markoptions" id="crosshair" checked/>Crosshair <input type="radio"  name="markoptions" id="marks"/>Marks <input type="radio" name="markoptions" id="route"/>Route
-                    <br />
-                    </h3>
-                </form>
             </p>
         </div>
 
