@@ -9,8 +9,35 @@ switch($action) {
 	case 'request' :
 		request();
 		break;
+	case 'send' :
+		send();
+		break;
 
 
+}
+
+
+function send() {
+	$data = $_POST['message'];
+
+	$all = json_decode($data);
+	$insert_string = "INSERT INTO entry (";
+
+	foreach ($all as $key => $value) {
+		$insert_string = $insert_string . $key . ", ";
+	}
+
+	$insert_string = substr($insert_string, 0, -2) . " ) VALUES (";
+
+	foreach ($all as $key => $value) {
+		$insert_string = $insert_string . "'" . $value . "', ";
+	}
+
+	$insert_string = substr($insert_string, 0, -2) . " )";
+
+	$return = executeSQL($insert_string);
+
+	echo json_encode($return);
 }
 
 

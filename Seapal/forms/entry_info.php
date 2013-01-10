@@ -30,24 +30,25 @@
                 </tr>
                 <tr>
                     <td><label for="position">Position</label></td>
-                    <td><input type="text" name="PositionN" size="10" /><label for="PositionN">"N</label><input type="text" name="PositionE" size="10" /><label for="PositionE">"E</label></td>
-                    <td><label for="COG">COG</label><input type="text" name="COG" size="10" /><label for="SOG" class="inline">SOG</label><input type="text" name="SOG" size="10" /></td>
+                    <td><input type="text" name="latitude" size="10" /><label for="PositionN">"N</label><input type="text" name="longitude" size="10" /><label for="PositionE">"E</label></td>
+                    <td><label for="COG">COG</label><input type="text" name="cog" size="10" /><label for="SOG" class="inline">SOG</label><input type="text" name="sog" size="10" /></td>
                 </tr>
                 <tr>
                     <td><label for="BTM">BTM</label></td>
-                    <td><input type="text" name="BTM" size="10" /></td>
-                    <td><label for="DTM">DTM</label><input type="text" name="DTM" size="10" /></td>
+                    <td><input type="text" name="btm" size="10" /></td>
+                    <td><label for="DTM">DTM</label><input type="text" name="dtm" size="10" /></td>
                     <td><label for="Route">Fahrt nach</label>
-                    <select name="Route">
+                    <select name="fahrt_nach">
                         <option value="mark1" selected="selected">Mark 1</option>
                         <option value="mark2">Mark 2</option>
                         <option value="mark3">Mark 3</option>
                     </select></td>
                 </tr>
                 <tr>
-                    <td><label for="Manöver">Manöver</label></td>
+                    <td><label for="manoever">Manöver</label></td>
                     <td>
-                    <select name="Maneuver">
+                    <select name="manoever">
+
                         <option value="-" selected="selected">-</option>
                         <?php
                         $result = select("SELECT name FROM manoever");
@@ -56,8 +57,8 @@
                         }
                         ?>
                     </select></td>
-                    <td><label for="Vorsegel">Vorsegel</label>
-                    <select name="ForeSail">
+                    <td><label for="vorsegel">Vorsegel</label>
+                    <select name="vorsegel">
                         <option value="-" selected="selected">-</option>
                         <?php
                         $result = select("SELECT name FROM vorsegel");
@@ -66,8 +67,8 @@
                         }
                         ?>
                     </select></td>
-                    <td><label for="Großsegel">Großsegel</label>
-                    <select name="MainSail">
+                    <td><label for="grosssegel">Großsegel</label>
+                    <select name="grosssegel">
                         <option value="-" selected="selected">-</option>
                         <?php
                         $result = select("SELECT name FROM grosssegel");

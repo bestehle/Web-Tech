@@ -37,7 +37,6 @@ function request(name) {
 		dataType : "json",
 		success : function(data) {
 			var entry = JSON.parse(data);
-			alert(data)
 			var startTime;
 			var endTime;
 			var duration;
