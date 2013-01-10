@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 08. Jan 2013 um 17:24
+-- Erstellungszeit: 10. Jan 2013 um 17:05
 -- Server Version: 5.5.27
 -- PHP-Version: 5.4.7
 
@@ -59,10 +59,13 @@ CREATE TABLE IF NOT EXISTS `boot` (
 --
 
 INSERT INTO `boot` (`bootsname`, `registernr`, `segelzeichen`, `heimathafen`, `yachtclub`, `eigner`, `versicherung`, `rufzeichen`, `typ`, `konstrukteur`, `laenge`, `breite`, `tiefgang`, `masthoehe`, `verdraengung`, `rigart`, `baujahr`, `motor`, `tankgroesse`, `wassertankgroesse`, `abwassertankgroesse`, `grosssegelgroesse`, `genuagroesse`, `spigroesse`) VALUES
-('aaa', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', -456, '', 0, 0, 0, 0, 0, 0),
+('aaaa', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 1997, '', 0, 0, 0, 0, 0, 0),
+('ab', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('abc', '', '', '', '', '', '', '', 'wolowitz', '', 3, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
 ('abcdq', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
 ('abcdqq', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
 ('abcdqqa', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
+('ai', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
 ('grippi', 'dfg', 'dfg', 'xcv', 'ert', '', '', '', 'dgs', 'dsfg', 0, 0, 0, 0, 0, '', 2, '', 0, 0, 0, 0, 0, 0),
 ('grippi reloaded', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
 ('grippi2', 'dfg', 'dfg', 'xcv', 'ert', '', '', '', 'dgs', 'dsfg', 0, 0, 0, 0, 0, '', 2, '', 0, 0, 0, 0, 0, 0),
@@ -81,8 +84,7 @@ INSERT INTO `boot` (`bootsname`, `registernr`, `segelzeichen`, `heimathafen`, `y
 ('howardwedfd', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
 ('takkk', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
 ('takkkk', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('taktok', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('test', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0);
+('taktok', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -107,6 +109,7 @@ CREATE TABLE IF NOT EXISTS `coordinate` (
 
 CREATE TABLE IF NOT EXISTS `entry` (
   `name` varchar(100) COLLATE utf8_bin NOT NULL,
+  `zeitpunkt` varchar(10) COLLATE utf8_bin NOT NULL,
   `position` int(11) NOT NULL,
   `cog` float NOT NULL,
   `sog` float NOT NULL,
@@ -116,8 +119,18 @@ CREATE TABLE IF NOT EXISTS `entry` (
   `manoever` varchar(100) COLLATE utf8_bin NOT NULL,
   `vorsegel` varchar(100) COLLATE utf8_bin NOT NULL,
   `grosssegel` varchar(100) COLLATE utf8_bin NOT NULL,
+  `trip` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Daten für Tabelle `entry`
+--
+
+INSERT INTO `entry` (`name`, `zeitpunkt`, `position`, `cog`, `sog`, `btm`, `dtm`, `fahrt_nach`, `manoever`, `vorsegel`, `grosssegel`, `trip`) VALUES
+('Wegpunkt1', '1:10', 1, 130, 1417.4, 0, 0, 0, '', '', '', 'rockamring'),
+('Wegpunkt2', '1:50', 2, 140, 1554.5, 0, 0, 0, '', '', '', 'rockamring'),
+('Wegpunkt3', '2:30', 3, 161, 1600.1, 0, 0, 0, '', '', '', 'rockamring');
 
 -- --------------------------------------------------------
 
@@ -184,10 +197,19 @@ INSERT INTO `manoever` (`name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `position` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `latitue` int(11) NOT NULL,
-  `longitude` int(11) NOT NULL,
+  `latitude` varchar(100) COLLATE utf8_bin NOT NULL,
+  `longitude` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+
+--
+-- Daten für Tabelle `position`
+--
+
+INSERT INTO `position` (`id`, `latitude`, `longitude`) VALUES
+(1, '47 47 21', '009 4 12'),
+(2, '47 48 22', '010 5 13'),
+(3, '47 50 31', '011 5 17');
 
 -- --------------------------------------------------------
 
@@ -205,7 +227,6 @@ CREATE TABLE IF NOT EXISTS `trip` (
   `ende` datetime NOT NULL,
   `motor` int(11) NOT NULL,
   `tank` int(11) NOT NULL,
-  `entry` varchar(100) COLLATE utf8_bin NOT NULL,
   `bootsname` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`trip_title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -214,8 +235,13 @@ CREATE TABLE IF NOT EXISTS `trip` (
 -- Daten für Tabelle `trip`
 --
 
-INSERT INTO `trip` (`trip_title`, `von`, `nach`, `skipper`, `crew`, `start`, `ende`, `motor`, `tank`, `entry`, `bootsname`) VALUES
-('rockamring', 'geislingen', 'nuerburg', 'campino', 'andi, kuddel, wom ritchi', '2013-01-01 00:15:20', '2013-01-01 02:14:22', 25, 70, '', 'grippi reloaded');
+INSERT INTO `trip` (`trip_title`, `von`, `nach`, `skipper`, `crew`, `start`, `ende`, `motor`, `tank`, `bootsname`) VALUES
+('rockamring', 'geislingen', 'nuerburg', 'campino', 'andi, kuddel, wom ritchi', '2013-01-01 00:15:20', '2013-01-01 02:14:22', 25, 70, 'grippi reloaded'),
+('southside', 'geislingen', 'neuhausen', 'fefe', 'chritte, benni', '2013-01-04 12:12:00', '2013-01-03 23:59:59', 120, 80, 'grippi reloaded'),
+('test', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 0, 'grippi reloaded'),
+('test2', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 0, 'grippi reloaded'),
+('test3', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 0, 'grippi reloaded'),
+('test4', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 0, 'grippi reloaded');
 
 -- --------------------------------------------------------
 
