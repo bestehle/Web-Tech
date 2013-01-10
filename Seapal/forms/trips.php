@@ -8,7 +8,7 @@
     ?>
     <div id="wrapper">
         <form>
-            <h1 id="ueberschrift">Tripübersicht</h1>
+            <h1 id="ueberschrift">Tripübersicht für <span class="italic"><?php echo $_GET["bootsname"] ?></span> </h1>
 
             <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
             <script src="tripsJS.js"></script>

@@ -1,11 +1,6 @@
 $(function() {
 	loadTripTable(getParam('tripname'));
 	loadEntryTable(getParam('tripname'));
-	
-	var ueberschrift = document.getElementById('ueberschrift');
-	var boatName = document.createTextNode(" für " + "'" + getParam('bootsname') + "'");
-	ueberschrift.appendChild(boatName);
-	
 });
 
 function getParam(variable){ 

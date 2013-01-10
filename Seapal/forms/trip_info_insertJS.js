@@ -1,7 +1,4 @@
 $(function() {
-	var ueberschrift = document.getElementById('ueberschrift');
-	var boatName = document.createTextNode(" für " + "'" + getParam('bootsname') + "'");
-	ueberschrift.appendChild(boatName);
 
 	window.onload = function(){
 		new JsDatePick({

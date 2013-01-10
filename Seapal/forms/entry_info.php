@@ -2,7 +2,9 @@
     <?php
     $title = "Entry Info";
     $buttons = array("speichern" => array("id" => "saveButton"));
-    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"], $_GET["tripname"] . " - Trip Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"], "Entry Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"]);
+    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"],
+    $_GET["tripname"] . " - Trip Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"],
+    "Entry Info" => "trip_info.php?entryname=" . $_GET["entryname"] . "&tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"]);
     include ("form_header.php");
 
     function select($select) {
@@ -20,7 +22,7 @@
         <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
         <script src="entry_infoJS.js"></script>
 
-        <h1 id="ueberschrift">Entry Info</h1>
+        <h1 id="ueberschrift">Entry Info für <span class="italic"><?php echo $_GET["entryname"] ?></span></h1>
 
         <form action="insert.php" method="post">
             <table id="entry_table" border="0" width="860px">

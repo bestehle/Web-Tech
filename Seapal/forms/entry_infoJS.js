@@ -1,9 +1,5 @@
 $(function() {
 	loadEntryTable(getParam('entryname'));
-	var ueberschrift = document.getElementById('ueberschrift');
-	var entryname = document.createTextNode(" für " + "'" + getParam('entryname') + "'");
-	ueberschrift.appendChild(entryname);
-	
 	document.getElementById("saveButton").onclick = readform;
 	
 });

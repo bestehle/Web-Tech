@@ -17,7 +17,7 @@
 
             <script src="trip_info_insertJS.js"></script>
 
-            <h1 id="ueberschrift">Neuer Trip</h1>
+            <h1 id="ueberschrift">Neuer Trip für <span class="italic"><?php echo $_GET["bootsname"] ?></span></h1>
 
             <table id="tripTableInput" cellpadding="5" class="form" width="860px">
                 <tr>

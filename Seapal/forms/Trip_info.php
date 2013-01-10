@@ -11,7 +11,7 @@
 
             <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
             <script src="trip_infoJS.js"></script>
-            <h1 id="ueberschrift">Trip Information</h1>
+            <h1 id="ueberschrift">Trip Information <span class="italic"><?php echo $_GET["tripname"] ?></span></h1>
 
             <table id="tripTable" cellpadding="5" class="form">
                 <tr>
