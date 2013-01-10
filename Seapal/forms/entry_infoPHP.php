@@ -12,70 +12,64 @@ switch($action) {
 	case 'send' :
 		send();
 		break;
-
-
 }
-
 
 function send() {
 	$data = $_POST['message'];
+	$name = $_POST['name'];
 
 	$all = json_decode($data);
-	$insert_string = "INSERT INTO entry (";
+	$name = json_decode($name);
 
-	foreach ($all as $key => $value) {
-		$insert_string = $insert_string . $key . ", ";
+	foreach ($name as $key => $value) {
+		$name = $value;
+		break;
 	}
 
-	$insert_string = substr($insert_string, 0, -2) . " ) VALUES (";
+	$insert_string = "UPDATE entry SET ";
 
 	foreach ($all as $key => $value) {
-		$insert_string = $insert_string . "'" . $value . "', ";
+		$insert_string = $insert_string . $key . "=" . "'" . $value . "'" . ", ";
 	}
 
-	$insert_string = substr($insert_string, 0, -2) . " )";
-
+	$insert_string = substr($insert_string, 0, -2) . " WHERE name=" . "'" . $name . "'";
 	$return = executeSQL($insert_string);
 
 	echo json_encode($return);
 }
 
-
-function requestEntryInfo () {
+function requestEntryInfo() {
 	$name = $_POST['message'];
-	
+
 	$select = "SELECT name, zeitpunkt, latitude, longitude, cog, sog  FROM entry, position WHERE 
-					trip=" ."'". $name."'" . "AND entry.position=position.id";						
-	
+					trip=" . "'" . $name . "'" . "AND entry.position=position.id";
+
 	$result = executeSQL($select);
-	
+
 	$json = array();
 	for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
 		$json[$i] = $row;
 	}
-	
-	echo json_encode(json_encode($json));
-	
-	
-}
 
+	echo json_encode(json_encode($json));
+
+}
 
 function request() {
 	$name = $_POST['message'];
-	
-	$select = "SELECT name, latitude, longitude, cog, sog, btm, dtm  FROM entry, position WHERE 
-					name=" ."'". $name."'" . "AND entry.position=position.id";						
-	
+
+	$select = "SELECT name, latitude, longitude, cog, sog, btm, dtm, manoever, vorsegel, fahrt_nach, grosssegel  FROM entry, position WHERE 
+					name=" . "'" . $name . "'" . "AND entry.position=position.id";
+
 	$result = executeSQL($select);
 
 	$row = mysql_fetch_array($result, MYSQL_ASSOC);
 	echo json_encode(json_encode($row));
-	
+
 }
 
-
 function executeSQL($string = '') {
-	
+
 	$con = mysql_connect("localhost", "root", "");
 	if (!$con) {
 		//fwrite(fopen('fail.txt', 'a'), 'Could not connect:' . mysql_error());
@@ -88,7 +82,6 @@ function executeSQL($string = '') {
 
 	if (!$re) {
 		// fwrite(fopen('fail.txt', 'a'), 'Error: ' . mysql_error());
-
 		$re = mysql_error();
 		// die('Error: ' . mysql_error());
 
@@ -97,6 +90,4 @@ function executeSQL($string = '') {
 
 	return $re;
 }
-
-
 ?>
