@@ -6,6 +6,9 @@ switch($action) {
 	case 'requestEntryInfo' :
 		requestEntryInfo();
 		break;
+	case 'request' :
+		request();
+		break;
 
 
 }
@@ -29,6 +32,19 @@ function requestEntryInfo () {
 	
 }
 
+
+function request() {
+	$name = $_POST['message'];
+	
+	$select = "SELECT name, latitude, longitude, cog, sog, btm, dtm  FROM entry, position WHERE 
+					name=" ."'". $name."'" . "AND entry.position=position.id";						
+	
+	$result = executeSQL($select);
+
+	$row = mysql_fetch_array($result, MYSQL_ASSOC);
+	echo json_encode(json_encode($row));
+	
+}
 
 
 function executeSQL($string = '') {

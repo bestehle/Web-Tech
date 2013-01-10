@@ -55,11 +55,7 @@ function send(message) {
 			if (data == true) {
 				alert("ÜBERTRAGEN");
 				window.location.reload();
-			} else {
-				alert("nicht so gut")
 			}
-				
-			
 		}
 	});
 	

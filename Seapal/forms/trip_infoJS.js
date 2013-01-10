@@ -37,6 +37,7 @@ function request(name) {
 		dataType : "json",
 		success : function(data) {
 			var entry = JSON.parse(data);
+			alert(data)
 			var startTime;
 			var endTime;
 			var duration;
@@ -108,9 +109,8 @@ function addRow(tableID, values_array) {
     element.setAttribute('width', '40');
     element.setAttribute('height', '25');
 	element.onclick = function() {
-  		// window.location.href = "entry_info.php?entryname=" + values_array[0] + "&bootsname=" + getParam('bootsname')+
-												// "&tripname=" + getParam('tripname'); 		alert("gedrückt");
-	}
+  		window.location.href = "entry_info.php?entryname=" + values_array[0] + "&bootsname=" + getParam('bootsname')+
+												 "&tripname=" + getParam('tripname'); 	}
 	
 	cell.appendChild(element);
 
