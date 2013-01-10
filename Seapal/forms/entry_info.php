@@ -19,21 +19,21 @@
                     <td><label for="name">Name</label><input type="text" name="name" size="20"  /></td>
                 </tr>
                 <tr>
-                    <td><label for="position">Position</label><input type="text" name="PositionN" size="10" /><label for="PositionN">"N</label><input type="text" name="PositionE" size="10" /><label for="PositionE">"E</label></td>
-                    <td><label for="COG">COG</label><input type="text" name="COG" size="10" /><label for="SOG" class="inline">SOG</label><input type="text" name="SOG" size="10" /></td>
+                    <td><label for="position">Position</label><input type="text" name="latitude" size="10" /><label for="positionN">"N</label><input type="text" name="longitude" size="10" /><label for="PositionE">"E</label></td>
+                    <td><label for="cog">COG</label><input type="text" name="cog" size="10" /><label for="sog" class="inline">SOG</label><input type="text" name="sog" size="10" /></td>
                 </tr>
                 <tr>
-                    <td><label for="BTM">BTM</label><input type="text" name="BTM" size="10" /><label for="DTM" class="inline">DTM</label><input type="text" name="DTM" size="10" /></td>
-                    <td><label for="Route">Fahrt nach</label>
-                    <select name="Route">
+                    <td><label for="btm">BTM</label><input type="text" name="btm" size="10" /><label for="dtm" class="inline">DTM</label><input type="text" name="dtm" size="10" /></td>
+                    <td><label for="route">Fahrt nach</label>
+                    <select name="fahrt_nach">
                         <option value="mark1" selected="selected">Mark 1</option>
                         <option value="mark2">Mark 2</option>
                         <option value="mark3">Mark 3</option>
                     </select></td>
                 </tr>
                 <tr>
-                    <td><label for="Manöver">Manöver</label>
-                    <select name="Maneuver">
+                    <td><label for="manoever">Manöver</label>
+                    <select name="manoever">
                         <option value="-" selected="selected">-</option>
                         <option value="Tack">Tack</option>
                         <option value="Layto">Lay to</option>
@@ -44,8 +44,8 @@
                         <option value="AnkerUp">Anker up</option>
                         <option value="AnkerDown">Anker down</option>
                     </select></td>
-                    <td><label for="Vorsegel">Vorsegel</label>
-                    <select name="ForeSail">
+                    <td><label for="vorsegel">Vorsegel</label>
+                    <select name="vorsegel">
                         <option value="-" selected="selected">-</option>
                         <option value="Genua1">Genua1</option>
                         <option value="Genua2">Genua2</option>
@@ -55,8 +55,8 @@
                         <option value="Blister">Blister</option>
                         <option value="Spinaker">Spinaker</option>
                     </select></td>
-                    <td><label for="Großsegel">Großsegel</label>
-                    <select name="MainSail">
+                    <td><label for="grosssegel">Großsegel</label>
+                    <select name="grosssegel">
                         <option value="-" selected="selected">-</option>
                         <option value="full">full</option>
                         <option value="reef1">reef 1</option>
