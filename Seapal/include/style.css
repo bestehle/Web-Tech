@@ -116,6 +116,12 @@ h2 span { font-weight: bold; }
 #menu ul li.contact {
 	z-index: 96;
 }
+#menu ul li.map {
+    z-index: 95;
+}
+#menu ul li.app {
+    z-index: 94;
+}
 
 /***************************************** Banner *****************************************/
 
