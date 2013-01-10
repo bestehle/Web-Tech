@@ -2,8 +2,8 @@
 <html>
     <?php
     $title = "Trip Info";
-    $pages = array("Boot Info" => "logbuch.php", "Trips" => "trips.php?bootsname=" . $_GET["bootsname"],
-     "Trip Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"] );
+    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"],
+    $_GET["tripname"] . " - Trip Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"]);
     include ("form_header.php");
     ?>
     <div id="wrapper">

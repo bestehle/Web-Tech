@@ -5,13 +5,7 @@ $(function() {
 		
 	var ueberschrift = document.getElementById('ueberschrift');
 	var boatName = document.createTextNode(" für " + "'" + getParam('bootsname') + "'");
-	ueberschrift.appendChild(boatName);
-	
-	
-	var element = document.getElementById('addTrip');
-	element.onclick = function() {
-  		window.location.href = "trip_info_insert.php?bootsname=" + getParam('bootsname'); 
-	}
+	ueberschrift.appendChild(boatName);
 });
 
 

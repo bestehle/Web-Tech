@@ -2,7 +2,8 @@
 <html>
     <?php
     $title = "Trips";
-    $pages = array("Boot Info" => "logbuch.php", "Trips" => "trips.php");
+    $buttons = array("Trip hinzufügen" => array("href" => "trip_info_insert.php?bootsname=" . $_GET["bootsname"]));
+    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php");
     include ("form_header.php");
     ?>
     <div id="wrapper">
@@ -12,9 +13,6 @@
             <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
             <script src="tripsJS.js"></script>
 
-            <input type="button" id="addTrip" value="+" />
-            <br>
-            </br>
             <div class="tableContainer">
                 <table class="tabelle">
                     <thead class="fixedHeader">

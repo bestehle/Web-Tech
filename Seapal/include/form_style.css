@@ -103,7 +103,7 @@ ul#breadcrumbs li a {
 }
 
 /* Mouse Events */
-ul#breadcrumbs li:hover, .button:hover {
+ul#breadcrumbs li:hover, .button:hover, .button_rechts:hover {
     background: #e9e9e9; /* Old browsers */
     background: -moz-linear-gradient(top, #e9e9e9 0%, #e1e1e1 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9e9e9), color-stop(100%,#e1e1e1)); /* Chrome,Safari4+ */
@@ -113,7 +113,7 @@ ul#breadcrumbs li:hover, .button:hover {
     background: linear-gradient(to bottom, #e9e9e9 0%,#e1e1e1 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9e9e9', endColorstr='#e1e1e1',GradientType=0 ); /* IE6-9 */
 }
-ul#breadcrumbs li:active, .button:active {
+ul#breadcrumbs li:active, .button:active, .button_rechts:active {
     background: #dbdbdb; /* Old browsers */
     background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbdbdb), color-stop(100%,#d3d3d3)); /* Chrome,Safari4+ */
@@ -133,7 +133,7 @@ ul#breadcrumbs li:active .arrow {
  *  END FREEBIE STYLES
  */
 
-.button {
+.button, .button_rechts {
     overflow: hidden;
     border: 1px solid #cccccc;
     padding: 14px;
@@ -167,9 +167,11 @@ ul#breadcrumbs li:active .arrow {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#efefef',GradientType=0 ); /* IE6-9 */
 }
 
-#rechts {
+.button_rechts {
     float: right;
+    cursor: pointer;
     margin-right: 10px;
+    margin-left: 20px;
 }
 
 #home {
@@ -285,8 +287,6 @@ form .form {
     width: 100px;
 }
 
-
-
 .tabelle {
     width: 100%;
     border-collapse: collapse;
@@ -302,7 +302,7 @@ form .form {
 }
 .tabelle td {
     padding: 0 20px 0 10px;
-/*    border: 1px solid #8A8985;*/
+    /*    border: 1px solid #8A8985;*/
 }
 .tabelle .even {
     padding: 0 50px 0 10px;
