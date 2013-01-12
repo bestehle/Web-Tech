@@ -22,7 +22,6 @@ function readform() {
 			}
 			continue;
 		}
-		document.getElementsByName("Mandsf")[0].v
 		if(all[i].name == 'baujahr' || all[i].name == 'laenge' || all[i].name == 'tankgroesse' || 
 			all[i].name == 'breite' || all[i].name == 'wassertankgroesse' || all[i].name == 'tiefgang' || 
 			all[i].name == 'abwassertankgroesse' || all[i].name == 'masthoehe' || all[i].name == 'grosssegelgroesse' || 
