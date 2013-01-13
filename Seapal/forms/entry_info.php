@@ -2,20 +2,29 @@
     <?php
     $title = "Entry Info";
     $buttons = array("speichern" => array("id" => "saveButton"));
-    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"],
-    $_GET["tripname"] . " - Trip Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"],
-    "Entry Info" => "trip_info.php?entryname=" . $_GET["entryname"] . "&tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"]);
+    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"], $_GET["tripname"] . " - Trip Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"], "Entry Info" => "trip_info.php?entryname=" . $_GET["entryname"] . "&tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"]);
     include ("form_header.php");
 
-    function select($select) {
-        $con = mysql_connect("localhost", "root", "");
-        if (!$con) {die('Could not connect:' . mysql_error());
-        }
-        mysql_select_db("seapal_db", $con);
-        $result = mysql_query($select, $con);
-        mysql_close($con);
-        return $result;
+    $con = mysql_connect("localhost", "root", "");
+    if (!$con) {die('Could not connect:' . mysql_error());
     }
+    mysql_select_db("seapal_db", $con);
+    $manoever = "";
+    $vorsegel = "";
+    $grosssegel = "";
+    $result = mysql_query("SELECT name FROM manoever", $con);
+    while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
+        $manoever = $manoever . "<option value=\"$row[0]\">$row[0]</option>";
+    }
+    $result = mysql_query("SELECT name FROM vorsegel", $con);
+    while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
+        $vorsegel = $vorsegel . "<option value=\"$row[0]\">$row[0]</option>";
+    }
+    $result = mysql_query("SELECT name FROM grosssegel", $con);
+    while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
+        $grosssegel = $grosssegel . "<option value=\"$row[0]\">$row[0]</option>";
+    }
+    mysql_close($con);
     ?>
     <div id="wrapper">
 
@@ -52,32 +61,17 @@
                     <select name="manoever">
 
                         <option value="-" selected="selected">-</option>
-                        <?php
-                        $result = select("SELECT name FROM manoever");
-                        while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
-                            echo "<option value=\"$row[0]\">$row[0]</option>";
-                        }
-                        ?>
+                        <?php echo $manoever; ?>
                     </select></td>
                     <td><label for="vorsegel">Vorsegel</label>
                     <select name="vorsegel">
                         <option value="-" selected="selected">-</option>
-                        <?php
-                        $result = select("SELECT name FROM vorsegel");
-                        while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
-                            echo "<option value=\"$row[0]\">$row[0]</option>";
-                        }
-                        ?>
+                        <?php echo $vorsegel; ?>
                     </select></td>
                     <td><label for="grosssegel">Großsegel</label>
                     <select name="grosssegel">
                         <option value="-" selected="selected">-</option>
-                        <?php
-                        $result = select("SELECT name FROM grosssegel");
-                        while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
-                            echo "<option value=\"$row[0]\">$row[0]</option>";
-                        }
-                        ?>
+                        <?php echo $grosssegel; ?>
                     </select></td>
                 </tr>
             </table>

@@ -3,8 +3,7 @@
     <?php
     $title = "Trip Info";
     $buttons = array("speichern" => array("id" => "saveButton"));
-    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"],
-    "Trip Info" => "trip_info.php?bootsname=" . $_GET["bootsname"]);
+    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"]);
     include ("form_header.php");
     ?>
     <div id="wrapper">
