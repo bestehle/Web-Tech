@@ -3,7 +3,8 @@
 
     <?php
     $title = "Map";
-    $buttons = array("Crosshair" => array("id" => "crosshair"), "Marks" => array("id" => "marks"), "Route" => array("id" => "route"));
+    $buttons = array("Crosshair" => array("id" => "crosshair"), "Marks" => array("id" => "marks"), "Route" => array("id" => "route"), 
+    "Koordinaten" => array("html" => "<span id=\"lat\">47°39.61'N</span><span id=\"long\">9°9.61'E</span>"));
     $pages = array("Boot Info" => "../forms/logbuch.php");
     include ("../forms/form_header.php");
     ?>
@@ -19,9 +20,9 @@
 
     <body onload="initialize()">
         <div>
-            <p align="center">
+<!--             <p align="center">
                 <span id="lat"> </span><span id="long"> </span>
-            </p>
+            </p> -->
         </div>
 
         <div id="map_canvas" style="width:100%; height:100%"></div>

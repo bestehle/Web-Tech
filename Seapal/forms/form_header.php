@@ -36,6 +36,9 @@
                 if (isset($value["id"])) {
                     echo "<a class=\"button_rechts\" id=\"" .$value["id"] . "\">$key</a>";
                 }
+                if (isset($value["html"])) {
+                    echo "<p class=\"button_rechts\">" . $value["html"] . "</p>";
+                }
             }
         }
     ?>

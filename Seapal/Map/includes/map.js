@@ -11,6 +11,8 @@ var crosshairIcon = new google.maps.MarkerImage('http://www0.xup.in/exec/ximg.ph
 var greenMarker = new google.maps.MarkerImage('http://maps.google.com/mapfiles/marker_green.png', new google.maps.Size(20, 34), new google.maps.Point(0, 0), new google.maps.Point(10, 17));
 
 function initialize() {
+    configureButtons();
+
 	var mapTypeIds = ["roadmap", "satellite", "OSM"];
 	var mapOptions = {
 		center : new google.maps.LatLng(47.66, 9.16),
@@ -48,14 +50,14 @@ function initialize() {
 	})
 
 	google.maps.event.addListener(map, 'dblclick', function(event) {
-		if (document.getElementById("marks").checked) {
-			setMarker(event.latLng);
-		} else if (document.getElementById("route").checked) {
-			addLatLng(myRoute, event);
-		} else if (document.getElementById("crosshair").checked) {
-			deleteMarker(crosshair);
-			setCrosshair(event.latLng);
-		}
+        if (document.getElementById("marks").className == "button_rechts_active") {
+            setMarker(event.latLng);
+        } else if (document.getElementById("route").className == "button_rechts_active") {
+            addLatLng(myRoute, event);
+        } else if (document.getElementById("crosshair").className == "button_rechts_active") {
+            deleteMarker(crosshair);
+            setCrosshair(event.latLng);
+        }
 	})
 	/*
 	*  ContextMenu
@@ -221,3 +223,16 @@ function initialize() {
 	myRoute.route = poly;
 	myRoute.icon = new google.maps.MarkerImage('http://maps.google.com/mapfiles/marker.png', new google.maps.Size(20, 34), new google.maps.Point(0, 0), new google.maps.Point(10, 17));
 }
+
+function configureButtons() {
+    document.getElementById('crosshair').className = 'button_rechts_active';
+    document.getElementById("marks").onclick = function(){setActiveButton("marks")};
+    document.getElementById("route").onclick = function(){setActiveButton("route")};
+    document.getElementById("crosshair").onclick = function(){setActiveButton("crosshair")};
+}
+function setActiveButton(button) {
+    document.getElementById('marks').className = 'button_rechts';
+    document.getElementById('route').className = 'button_rechts';
+    document.getElementById('crosshair').className = 'button_rechts';
+    document.getElementById(button).className = 'button_rechts_active';;
+}
