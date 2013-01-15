@@ -44,7 +44,7 @@ function readform() {
 	var timePattern = new RegExp("^([01]\\d|2[0-3]):?([0-5]\\d):?([0-5]\\d)$");
 	
 	var data = {};
-	var all = $('#tripTable input');	
+	var all = $('#tripTableInput input');	
 	for (var i = 0; i < all.size(); i++) {
 		if(all[i].name == 'startdatum' || all[i].name == 'startzeit' || all[i].name == 'endedatum' ||
 				all[i].name == 'endezeit' || all[i].name == 'dauer') {

@@ -2,7 +2,7 @@
     <?php
     $title = "Entry Info";
     $buttons = array("speichern" => array("id" => "saveButton"));
-    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"], $_GET["tripname"] . " - Trip Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"], "Entry Info" => "trip_info.php?entryname=" . $_GET["entryname"] . "&tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"]);
+    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"], $_GET["tripname"] . " - Trip Info" => "trip_info.php?tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"], "Entry Info" => "entry_info.php?entryname=" . $_GET["entryname"] . "&tripname=" . $_GET["tripname"] . "&bootsname=" . $_GET["bootsname"]);
     include ("form_header.php");
 
     $con = mysql_connect("localhost", "root", "");

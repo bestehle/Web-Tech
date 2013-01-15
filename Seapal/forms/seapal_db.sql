@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 10. Jan 2013 um 22:24
+-- Erstellungszeit: 15. Jan 2013 um 22:57
 -- Server Version: 5.5.27
 -- PHP-Version: 5.4.7
 
@@ -28,29 +28,29 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `boot` (
   `bootsname` varchar(100) COLLATE utf8_bin NOT NULL,
-  `registernr` varchar(100) COLLATE utf8_bin NOT NULL,
-  `segelzeichen` varchar(100) COLLATE utf8_bin NOT NULL,
-  `heimathafen` varchar(100) COLLATE utf8_bin NOT NULL,
-  `yachtclub` varchar(100) COLLATE utf8_bin NOT NULL,
-  `eigner` varchar(100) COLLATE utf8_bin NOT NULL,
-  `versicherung` varchar(100) COLLATE utf8_bin NOT NULL,
-  `rufzeichen` varchar(100) COLLATE utf8_bin NOT NULL,
-  `typ` varchar(100) COLLATE utf8_bin NOT NULL,
-  `konstrukteur` varchar(100) COLLATE utf8_bin NOT NULL,
-  `laenge` float NOT NULL,
-  `breite` float NOT NULL,
-  `tiefgang` float NOT NULL,
-  `masthoehe` float NOT NULL,
-  `verdraengung` float NOT NULL,
-  `rigart` varchar(100) COLLATE utf8_bin NOT NULL,
-  `baujahr` int(11) NOT NULL,
-  `motor` varchar(100) COLLATE utf8_bin NOT NULL,
-  `tankgroesse` float NOT NULL,
-  `wassertankgroesse` float NOT NULL,
-  `abwassertankgroesse` float NOT NULL,
-  `grosssegelgroesse` float NOT NULL,
-  `genuagroesse` float NOT NULL,
-  `spigroesse` float NOT NULL,
+  `registernr` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `segelzeichen` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `heimathafen` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `yachtclub` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `eigner` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `versicherung` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `rufzeichen` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `typ` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `konstrukteur` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `laenge` float NOT NULL DEFAULT '0',
+  `breite` float NOT NULL DEFAULT '0',
+  `tiefgang` float NOT NULL DEFAULT '0',
+  `masthoehe` float NOT NULL DEFAULT '0',
+  `verdraengung` float NOT NULL DEFAULT '0',
+  `rigart` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `baujahr` int(11) NOT NULL DEFAULT '0',
+  `motor` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `tankgroesse` float NOT NULL DEFAULT '0',
+  `wassertankgroesse` float NOT NULL DEFAULT '0',
+  `abwassertankgroesse` float NOT NULL DEFAULT '0',
+  `grosssegelgroesse` float NOT NULL DEFAULT '0',
+  `genuagroesse` float NOT NULL DEFAULT '0',
+  `spigroesse` float NOT NULL DEFAULT '0',
   PRIMARY KEY (`bootsname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -59,31 +59,9 @@ CREATE TABLE IF NOT EXISTS `boot` (
 --
 
 INSERT INTO `boot` (`bootsname`, `registernr`, `segelzeichen`, `heimathafen`, `yachtclub`, `eigner`, `versicherung`, `rufzeichen`, `typ`, `konstrukteur`, `laenge`, `breite`, `tiefgang`, `masthoehe`, `verdraengung`, `rigart`, `baujahr`, `motor`, `tankgroesse`, `wassertankgroesse`, `abwassertankgroesse`, `grosssegelgroesse`, `genuagroesse`, `spigroesse`) VALUES
-('ab', '', '', '', '', '', '', '', 'wolowitzi', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('abc', '', '', '', '', '', '', '', 'wolowitz', '', 3, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('abcdq', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
-('abcdqq', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
-('abcdqqa', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
-('ai', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippi', 'dfg', 'dfg', 'xcv', 'ert', '', '', '', 'dgs', 'dsfg', 0, 0, 0, 0, 0, '', 2, '', 0, 0, 0, 0, 0, 0),
-('grippi reloaded', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippi2', 'dfg', 'dfg', 'xcv', 'ert', '', '', '', 'dgs', 'dsfg', 0, 0, 0, 0, 0, '', 2, '', 0, 0, 0, 0, 0, 0),
-('grippi3', 'dfg', 'dfg', 'xcv', 'ert', '', '', '', 'dgs', 'dsfg', 0, 0, 0, 0, 0, '', 2, '', 0, 0, 0, 0, 0, 0),
-('grippitest', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippitest2', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippitest3', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippitest4', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippitest5', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippitest7', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippitest8', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('grippitest9', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('howard', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
-('howardwe', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
-('howardwedf', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
-('howardwedfd', '', '', '', '', '', '', '', 'wolowitz', '', 0, 0, 0, 0, 0, '', 123, '', 0, 0, 0, 0, 0, 0),
-('takkk', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('takkkk', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('taktok', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0);
+('Black Pearl', '', '', '', '', 'Jack Sparrow', '', '', 'Segelschiff', 'Piraten', 20, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Flying Dutchman', '', '', '', '', 'Dave Jones', '', '', 'Segelschiff', 'Piraten', 25, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic', '', '', '', '', 'Eisberg', '', '', 'Dampfer', 'Iren', 60, 0, 0, 0, 0, '', 1913, '', 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -108,16 +86,16 @@ CREATE TABLE IF NOT EXISTS `coordinate` (
 
 CREATE TABLE IF NOT EXISTS `entry` (
   `name` varchar(100) COLLATE utf8_bin NOT NULL,
-  `zeitpunkt` varchar(10) COLLATE utf8_bin NOT NULL,
-  `position` int(11) NOT NULL,
-  `cog` float NOT NULL,
-  `sog` float NOT NULL,
-  `btm` float NOT NULL,
-  `dtm` float NOT NULL,
-  `fahrt_nach` int(11) NOT NULL,
-  `manoever` varchar(100) COLLATE utf8_bin NOT NULL,
-  `vorsegel` varchar(100) COLLATE utf8_bin NOT NULL,
-  `grosssegel` varchar(100) COLLATE utf8_bin NOT NULL,
+  `zeitpunkt` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `position` int(11) NOT NULL DEFAULT '0',
+  `cog` float NOT NULL DEFAULT '0',
+  `sog` float NOT NULL DEFAULT '0',
+  `btm` float NOT NULL DEFAULT '0',
+  `dtm` float NOT NULL DEFAULT '0',
+  `fahrt_nach` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `manoever` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `vorsegel` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `grosssegel` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
   `trip` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -127,19 +105,8 @@ CREATE TABLE IF NOT EXISTS `entry` (
 --
 
 INSERT INTO `entry` (`name`, `zeitpunkt`, `position`, `cog`, `sog`, `btm`, `dtm`, `fahrt_nach`, `manoever`, `vorsegel`, `grosssegel`, `trip`) VALUES
-('Wegpunkt2', '1:50', 2, 140, 1554.5, 0, 0, 0, 'Change Sails', 'Genua1', 'reef 2', 'rockamring'),
-('Wegpunkt3', '2:30', 3, 161, 1600.1, 0, 0, 0, 'Jibe', 'Blister', 'full', 'rockamring');
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `fahrt_nach`
---
-
-CREATE TABLE IF NOT EXISTS `fahrt_nach` (
-  `name` varchar(100) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+('Wegpunkt2', '1:50', 2, 141, 1500.2, 0, 0, '0', 'Change Sails', 'Fock', 'reef 2', 'rockamring'),
+('Wegpunkt3', '2:30', 3, 161, 1000.4, 0, 0, 'mark3', 'Tack', 'Strom Fock', 'reef2', 'rockamring');
 
 -- --------------------------------------------------------
 
@@ -217,14 +184,14 @@ INSERT INTO `position` (`id`, `latitude`, `longitude`) VALUES
 
 CREATE TABLE IF NOT EXISTS `trip` (
   `trip_title` varchar(100) COLLATE utf8_bin NOT NULL,
-  `von` varchar(100) COLLATE utf8_bin NOT NULL,
-  `nach` varchar(100) COLLATE utf8_bin NOT NULL,
-  `skipper` varchar(100) COLLATE utf8_bin NOT NULL,
-  `crew` varchar(100) COLLATE utf8_bin NOT NULL,
+  `von` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `nach` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `skipper` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `crew` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
   `start` datetime NOT NULL,
   `ende` datetime NOT NULL,
-  `motor` int(11) NOT NULL,
-  `tank` int(11) NOT NULL,
+  `motor` int(11) NOT NULL DEFAULT '0',
+  `tank` int(11) NOT NULL DEFAULT '0',
   `bootsname` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`trip_title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -234,12 +201,9 @@ CREATE TABLE IF NOT EXISTS `trip` (
 --
 
 INSERT INTO `trip` (`trip_title`, `von`, `nach`, `skipper`, `crew`, `start`, `ende`, `motor`, `tank`, `bootsname`) VALUES
-('rockamring', 'geislingen', 'nuerburg', 'campino', 'andi, kuddel, wom ritchi', '2013-01-01 00:15:20', '2013-01-01 02:14:22', 25, 70, 'grippi reloaded'),
-('southside', 'geislingen', 'neuhausen', 'fefe', 'chritte, benni', '2013-01-04 12:12:00', '2013-01-03 23:59:59', 120, 80, 'grippi reloaded'),
-('test', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 0, 'grippi reloaded'),
-('test2', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 0, 'grippi reloaded'),
-('test3', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 0, 'grippi reloaded'),
-('test4', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 0, 'grippi reloaded');
+('Mainau', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 5, 'Black Pearl'),
+('rockamring', 'geislingen', 'nuerburg', 'campino', 'andi, kuddel, wom ritchi', '2013-01-01 00:15:20', '2013-01-01 02:14:22', 25, 70, 'Black Pearl'),
+('southside', 'geislingen', 'neuhausen', 'fefe', 'chritte, benni', '2013-01-04 12:12:00', '2013-01-03 23:59:59', 120, 80, 'Flying Dutchman');
 
 -- --------------------------------------------------------
 
