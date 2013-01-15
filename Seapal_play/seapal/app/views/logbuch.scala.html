@@ -1,0 +1,88 @@
+@(bootForm: Form[Boot], inputElements: Array[Array[String]], pages: Map[String, String], buttons: Map[String, String]) 
+
+@import helper._ 
+
+
+
+
+@logbuchForm() = {
+<div id="wrapper">
+    <h1>Logbuch</h1>
+    
+    @form(routes.Logbuch.createBoot, 'id -> "logbuch") {
+        
+    <table class="form" id="logbuch" width="990px">
+        @for(list <- inputElements)  {
+            @inputTR(list)
+        }
+    </table>
+    <input type="submit" value="" style="visibility: hidden; float: left;"> }
+
+    <div class="greeting"></div>
+    <button style="visibility: hidden; float: left;" class="send"></button>
+
+    <script src="@routes.Assets.at("javascripts/logbuch.js")" type="text/javascript"></script>
+    
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket
+            var sock = new WS("@routes.Logbuch.socketHandler().webSocketURL(request)")
+            
+            sock.onmessage = function(event) {
+                var rowsLength = document.getElementById("infotable").rows.length - 1;
+                var rows = JSON.parse(event.data);
+                var Parent = document.getElementById("infotable");
+                for (var i = 0; i < rowsLength; i++)   {
+                    Parent.removeChild(Parent.lastChild);
+                }
+                for (var i = 0; i < rows.length; i++) {
+                    addRow("infotable", new Array(rows[i].bootsname, rows[i].typ, rows[i].konstrukteur, rows[i].laenge, rows[i].eigner), sock, rows);
+                };
+            }
+            $('button.send').click(function sen() {
+            	sock.send("GET");
+            });
+            window.setTimeout(function(){sock.send("GET")}, 500);
+        })
+    </script>
+
+    <form>
+            <h2>Gespeicherte Boote</h2>
+            <div class="tableContainer">
+                <table  class="tabelle">
+                    <thead class="fixedHeader">
+                        <tr id="infoheader" class="tabelle_header">
+                            <td width="160px">Bootsname</td>
+                            <td width="160px">Bootstyp</td>
+                            <td width="160px">Konstrukteur</td>
+                            <td width="160px">Laenge</td>
+                            <td width="160px">Inhaber</td>
+                            <td width="50px"></td>
+                            <td width="100px"></td>
+                        </tr>
+                    </thead>
+                    <tbody id="infotable" class="scrollContent">
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+   </div>
+}
+
+@main("Boot Info", pages, buttons) {
+    @logbuchForm()
+}
+
+@inputTD(name: String) =  {
+    <td>@inputText(bootForm(name))</td>
+}
+
+@inputTR(inputs: Array[String]) = {
+    <tr>
+        @for(input <- inputs)  {
+            @inputTD(input)
+        }
+    </tr>
+}

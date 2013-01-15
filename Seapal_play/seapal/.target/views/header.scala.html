@@ -1,0 +1,33 @@
+@*@(buttons: Map[String, String], pages: Map[String, String])*@
+@()
+
+<div id="content">
+    <a href="localhost/" class="button" id="home">
+        <img id="icon" src="@routes.Assets.at("images/favicon.png")" alt="HOME" width="40" height="44" />
+    </a>
+    <ul id="breadcrumbs-freebie">
+        <li>
+            <!-- Start Freebie -->
+            <ul id="breadcrumbs">
+                @*@for((url, text) <- pages)  {
+                    @listItem(url, text)
+                }*@
+            </ul> <!-- End Freebie -->
+        </li>
+    </ul>@*
+    @button("../Map/map.php", "Map")
+    @for((href, text) <- buttons)  {
+        @button(href, text)
+    }*@
+</div>
+
+
+@listItem(href: String, text: String) = {
+<li>
+    <a href="@href"><span>@text</span><span class="arrow"></span></a>
+</li>
+}
+
+@button(href: String, text: String) = {
+    <a href="@href" class="button_rechts">@text</a>
+}

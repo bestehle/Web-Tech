@@ -1,0 +1,40 @@
+@(bootForm: Form[Boot], inputElements: Array[Array[String]]) 
+
+@import helper._ 
+
+
+
+
+@logbuchForm() = {
+<div id="wrapper">
+    <h1>Logbuch</h1>
+    
+    @form(routes.Logbuch.createBoot, 'id -> "logbuch") {
+        
+    <table class="form">
+        @for(list <- inputElements)  {
+            @inputTR(list)
+        }
+    </table>
+
+        <input type="submit" value="Create">
+        
+    }
+   </div>
+}
+
+@main("Boot Info") {
+    @logbuchForm()
+}
+
+@inputTD(name: String) =  {
+    <td>@inputText(bootForm(name))</td>
+}
+
+@inputTR(inputs: Array[String]) = {
+    <tr>
+        @for(input <- inputs)  {
+            @inputTD(input)
+        }
+    </tr>
+}
