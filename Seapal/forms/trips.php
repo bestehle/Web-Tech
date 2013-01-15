@@ -3,7 +3,7 @@
     <?php
     $title = "Trips";
     $buttons = array("Trip hinzufügen" => array("href" => "trip_info_insert.php?bootsname=" . $_GET["bootsname"]));
-    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php");
+    $pages = array("Boot Info" => "logbuch.php", $_GET["bootsname"] . " - Trips" => "trips.php?bootsname=" . $_GET["bootsname"]);
     include ("form_header.php");
     ?>
     <div id="wrapper">
