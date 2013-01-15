@@ -19,13 +19,6 @@
     </head>
 
     <body onload="initialize()">
-        <div>
-<!--             <p align="center">
-                <span id="lat"> </span><span id="long"> </span>
-            </p> -->
-        </div>
-
-        <div id="map_canvas" style="width:100%; height:100%"></div>
-
+        <div id="map_canvas" style="width:100%; height:88%"></div>
     </body>
 </html>

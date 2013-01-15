@@ -40,3 +40,7 @@ body {
 	padding: 0;
 }
 /*	end styles for the ContextMenu	*/
+
+div#content {
+    height: 12%;
+}
