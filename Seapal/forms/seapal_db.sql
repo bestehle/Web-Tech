@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 15. Jan 2013 um 22:57
+-- Erstellungszeit: 16. Jan 2013 um 17:20
 -- Server Version: 5.5.27
 -- PHP-Version: 5.4.7
 
@@ -61,7 +61,19 @@ CREATE TABLE IF NOT EXISTS `boot` (
 INSERT INTO `boot` (`bootsname`, `registernr`, `segelzeichen`, `heimathafen`, `yachtclub`, `eigner`, `versicherung`, `rufzeichen`, `typ`, `konstrukteur`, `laenge`, `breite`, `tiefgang`, `masthoehe`, `verdraengung`, `rigart`, `baujahr`, `motor`, `tankgroesse`, `wassertankgroesse`, `abwassertankgroesse`, `grosssegelgroesse`, `genuagroesse`, `spigroesse`) VALUES
 ('Black Pearl', '', '', '', '', 'Jack Sparrow', '', '', 'Segelschiff', 'Piraten', 20, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
 ('Flying Dutchman', '', '', '', '', 'Dave Jones', '', '', 'Segelschiff', 'Piraten', 25, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
-('Titanic', '', '', '', '', 'Eisberg', '', '', 'Dampfer', 'Iren', 60, 0, 0, 0, 0, '', 1913, '', 0, 0, 0, 0, 0, 0);
+('Titanic', '', '', '', '', 'Eisberg', '', '', 'Dampfer', 'Irland', 60, 0, 0, 0, 0, '', 1913, '', 0, 0, 0, 0, 0, 0),
+('Titanic1', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic10', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic11', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic12', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic2', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic3', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic4', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic5', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic6', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic7', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic8', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0),
+('Titanic9', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', 0, '', 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -105,8 +117,8 @@ CREATE TABLE IF NOT EXISTS `entry` (
 --
 
 INSERT INTO `entry` (`name`, `zeitpunkt`, `position`, `cog`, `sog`, `btm`, `dtm`, `fahrt_nach`, `manoever`, `vorsegel`, `grosssegel`, `trip`) VALUES
-('Wegpunkt2', '1:50', 2, 141, 1500.2, 0, 0, '0', 'Change Sails', 'Fock', 'reef 2', 'rockamring'),
-('Wegpunkt3', '2:30', 3, 161, 1000.4, 0, 0, 'mark3', 'Tack', 'Strom Fock', 'reef2', 'rockamring');
+('Wegpunkt1', '1:50', 2, 141, 1500.2, 0, 0, 'mark1', 'Change Sails', 'Fock', 'reef2', 'Beringsee'),
+('Wegpunkt2', '2:30', 3, 161, 1000.4, 0, 0, 'mark3', 'Tack', 'Genua1', 'full', 'Beringsee');
 
 -- --------------------------------------------------------
 
@@ -201,9 +213,9 @@ CREATE TABLE IF NOT EXISTS `trip` (
 --
 
 INSERT INTO `trip` (`trip_title`, `von`, `nach`, `skipper`, `crew`, `start`, `ende`, `motor`, `tank`, `bootsname`) VALUES
-('Mainau', '', '', '', '', '2013-01-01 12:12:12', '2013-01-02 12:12:12', 0, 5, 'Black Pearl'),
-('rockamring', 'geislingen', 'nuerburg', 'campino', 'andi, kuddel, wom ritchi', '2013-01-01 00:15:20', '2013-01-01 02:14:22', 25, 70, 'Black Pearl'),
-('southside', 'geislingen', 'neuhausen', 'fefe', 'chritte, benni', '2013-01-04 12:12:00', '2013-01-03 23:59:59', 120, 80, 'Flying Dutchman');
+('Beringsee', 'Nordamerika', 'Asien', 'Jack Sparrow', 'Will Turner, Elisaeth Swan', '2013-01-01 00:15:20', '2013-01-01 02:14:22', 25, 30, 'Black Pearl'),
+('Mittelmeer', 'Monaco', 'Ibiza', 'Dave Jones', 'Piraten', '2013-01-04 12:12:00', '2013-01-09 23:59:59', 80, 80, 'Flying Dutchman'),
+('Suedsee', 'Hawai', 'Neuseeland', 'Jack Sparrow', 'Will Turner', '2013-01-01 12:12:12', '2013-01-02 14:12:12', 75, 75, 'Black Pearl');
 
 -- --------------------------------------------------------
 
