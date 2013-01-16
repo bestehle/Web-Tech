@@ -1,26 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- 	<%@ page import="java.util.LinkedHashMap" %>
+    <%@ page import="java.util.LinkedHashMap" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    
-   	<%
+    <%
     String title = "Trip Info";
      
     Map<String, Map<String, String>> buttons = new LinkedHashMap<String, Map<String, String>>();
- 	Map<String, String> add = new LinkedHashMap<String, String>();
- 	Map<String, String> pages = new LinkedHashMap<String, String>();
- 	
- 	add.put("id", "saveButton");
- 	buttons.put("speichern", add);
- 	
- 	pages.put("Boot Info", "logbuch.jsp");
- 	pages.put(request.getParameter("bootsname") + " - Trips", "trips.jsp?bootsname=" + request.getParameter("bootsname"));
- 	%>
- 	
- 	
+    Map<String, String> add = new LinkedHashMap<String, String>();
+    Map<String, String> pages = new LinkedHashMap<String, String>();
+    
+    add.put("id", "saveButton");
+    buttons.put("speichern", add);
+    
+    pages.put("Boot Info", "logbuch.jsp");
+    pages.put(request.getParameter("bootsname") + " - Trips", "trips.jsp?bootsname=" + request.getParameter("bootsname"));
+    %>
+    
+    
      
- 	<%@ include file="form_header.jsp" %>
+    <%@ include file="form_header.jsp" %>
    
    
    
@@ -34,7 +34,7 @@
 
             <script src="trip_info_insertJS.js"></script>
 
-            <h1 id="ueberschrift">Neuer Trip für <span class="italic"><% out.print(request.getParameter("bootsname")); %></span></h1>
+            <h1 id="ueberschrift">Neuer Trip fÃ¼r <span class="italic"><% out.print(request.getParameter("bootsname")); %></span></h1>
 
             <table id="tripTableInput" cellpadding="5" class="form" width="860px">
                 <tr>
@@ -74,10 +74,10 @@
                     <td><input type="text" name="skipper" value=""></td>
 
                     <td><label for="dauer">Dauer</label></td>
-                    <td><input type="" name="dauer" value="ausgrauenCSS"></td>
+                    <td><input type="" name="dauer" value=""></td>
 
-                    <td><label for="tank">Tank gefüllt</label></td>
-                    <td><input type="text" name="tank" value="0 - 100 (hover CSS)"></td>
+                    <td><label for="tank">Tank gefÃ¼llt</label></td>
+                    <td><input type="text" name="tank" value=""></td>
                 </tr>
             </table>
 
@@ -86,7 +86,7 @@
     </div>
     <div id="footer">
         <p>
-            © 2012 IBN Verlag
+            Â© 2012 IBN Verlag
         </p>
     </div>
     </body>
