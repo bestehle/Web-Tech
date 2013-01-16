@@ -56,10 +56,10 @@
                     <td><input type="text" name="skipper" value=""></td>
 
                     <td><label for="dauer">Dauer</label></td>
-                    <td><input type="" name="dauer" value="ausgrauenCSS"></td>
+                    <td><input type="" name="dauer" value=""></td>
 
                     <td><label for="tank">Tank gefüllt</label></td>
-                    <td><input type="text" name="tank" value="0 - 100 (hover CSS)"></td>
+                    <td><input type="text" name="tank" value=""></td>
                 </tr>
             </table>
 
