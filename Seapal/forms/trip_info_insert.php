@@ -14,7 +14,7 @@
             <link rel="stylesheet" type="text/css" media="all" href="../Kalender/jsDatePick_ltr.min.css" />
             <script type="text/javascript" src="../Kalender/jsDatePick.min.1.3.js"></script>
 
-            <script src="trip_info_insertJS.js"></script
+            <script src="trip_info_insertJS.js"></script>
 
             <h1 id="ueberschrift">Neuer Trip für <span class="italic"><?php echo $_GET["bootsname"] ?></span></h1>
 
